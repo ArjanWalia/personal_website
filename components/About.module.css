@@ -1,0 +1,54 @@
+.section {
+  margin-top: 40px;
+  scroll-margin-top: var(--nav-height);
+}
+
+.inner {
+  display: grid;
+  /* single column: the About label sits directly above its paragraphs */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Hairline above the section, aligned with the text rather than the viewport edge. */
+.inner::before {
+  content: "";
+  grid-column: 1 / -1;
+  height: 1px;
+  margin-bottom: 20px;
+  background: var(--line);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.body p {
+  max-width: 68ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+.body p + p {
+  margin-top: 18px;
+}
+
+.question {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .section {
+    margin-top: 32px;
+  }
+}

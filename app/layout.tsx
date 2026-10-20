@@ -10,7 +10,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Arjan Walia",
   description:
-    "Competitive pianist providing accessibility to musicians and students internationally.",
+    "Building accessibility tech | Competitive pianist | Tennis MVP",
 };
 
 export default function RootLayout({

@@ -1,8 +1,8 @@
 .header {
-  --profile-size: clamp(140px, 18vw, 240px);
-  --gutter: clamp(16px, 5vw, 72px);
-  padding-top: 24px;
-  padding-bottom: 80px;
+  --profile-size: clamp(120px, 17vw, 220px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px var(--gutter) 0;
   /* land just below the sticky nav when jumped to */
   scroll-margin-top: var(--nav-height);
 }
@@ -11,7 +11,6 @@
 
 .scrollerWrap {
   position: relative;
-  margin: 0 var(--gutter);
 }
 
 .scroller {
@@ -19,8 +18,9 @@
 }
 
 .track {
+  /* photos butt up against each other as one continuous strip; only the strip's ends are rounded */
   display: flex;
-  gap: 16px;
+  gap: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -36,7 +36,6 @@
   /* width follows from the photo's aspect ratio (set inline), so nothing is cropped */
   flex: 0 0 auto;
   height: clamp(120px, 13.5vw, 220px);
-  border-radius: 20px;
   overflow: hidden;
   background: var(--surface);
   scroll-snap-align: start;
@@ -65,21 +64,21 @@
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
-  border: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: var(--background);
+  background: rgba(248, 243, 234, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--foreground);
-  box-shadow: 0 4px 16px rgba(22, 22, 22, 0.15);
   cursor: pointer;
   transform: translateY(-50%);
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease;
 }
 
 .arrow:hover {
   background: #fff;
-  transform: translateY(-50%) scale(1.06);
 }
 
 .arrow:focus-visible {
@@ -88,120 +87,125 @@
 }
 
 .arrow svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2.5;
+  stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .arrowLeft {
-  left: -24px;
+  left: -22px;
 }
 
 .arrowRight {
-  right: -24px;
+  right: -22px;
 }
 
-/* ---------- Profile photo (half in, half out of the scroller, at the 3/4 point) ---------- */
+/* ---------- Intro: name and text on the left, profile photo on the right, level with the name ---------- */
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--profile-size);
+  grid-template-areas:
+    "name photo"
+    "text photo";
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  column-gap: clamp(24px, 4vw, 48px);
+  padding-top: 40px;
+}
 
 .profile {
-  position: absolute;
-  z-index: 3;
-  left: 75%;
-  bottom: 0;
+  grid-area: photo;
+  position: relative;
   width: var(--profile-size);
-  height: var(--profile-size);
-  transform: translate(-50%, 50%);
-  border-radius: 28px;
+  aspect-ratio: 1;
+  border-radius: 24px;
   overflow: hidden;
-  border: 6px solid var(--background);
-  box-shadow: 0 12px 32px rgba(22, 22, 22, 0.18);
+  box-shadow: 0 12px 32px rgba(22, 22, 22, 0.14);
   background: var(--surface);
 }
 
-/* ---------- Intro text ---------- */
-
-.intro {
-  margin: 0 var(--gutter);
-  padding-top: 32px;
+.text {
+  grid-area: text;
+  max-width: 68ch;
 }
 
-.titleRow {
+.nameRow {
+  grid-area: name;
   display: flex;
-  align-items: center;
-  gap: 20px;
-  /* keep the name/tagline clear of the profile photo's lower half */
-  max-width: calc(75% - var(--profile-size) / 2 - 24px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 
 .name {
-  flex-shrink: 0;
-  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 1;
   color: var(--foreground);
 }
 
-.divider {
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
-  font-weight: 300;
-  line-height: 1;
-  color: var(--foreground);
-}
-
 .tagline {
-  font-size: clamp(1rem, 1.5vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  color: var(--foreground);
-}
-
-.meta {
-  margin-top: 28px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(22, 22, 22, 0.15);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin-top: 16px;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   font-weight: 600;
   letter-spacing: -0.015em;
+  line-height: 1.35;
   color: var(--accent);
 }
 
-.meta span {
-  margin: 0 10px;
+/* keep each tagline phrase on one line; wrapping happens only at the separators */
+.phrase {
+  white-space: nowrap;
+}
+
+.bar {
+  margin: 0 4px;
+  font-weight: 400;
+  color: rgba(22, 22, 22, 0.3);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
   color: var(--muted);
 }
 
-.description {
-  margin-top: 20px;
-  max-width: 72ch;
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
-  font-weight: 450;
-  line-height: 1.65;
-  letter-spacing: -0.01em;
-  color: #2c2620;
+.dot {
+  color: rgba(22, 22, 22, 0.3);
 }
+
 
 /* ---------- Small screens ---------- */
 
-@media (max-width: 900px) {
-  .titleRow {
-    flex-wrap: wrap;
-    max-width: 100%;
-    padding-top: calc(var(--profile-size) / 2);
-    gap: 8px 16px;
+@media (max-width: 720px) {
+  /* photo stays beside the name; the rest of the text runs full width below */
+  .intro {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    grid-template-areas:
+      "name photo"
+      "text text";
+    column-gap: 16px;
+    padding-top: 28px;
   }
 
-  .tagline {
-    flex-basis: 100%;
+  .profile {
+    width: 96px;
+    border-radius: 18px;
   }
 
-  .divider {
-    display: none;
+  .name {
+    font-size: clamp(2.1rem, 9vw, 2.75rem);
   }
 }
 

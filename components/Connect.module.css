@@ -1,0 +1,162 @@
+.section {
+  margin-top: 88px;
+  scroll-margin-top: var(--nav-height);
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Hairline above the section, aligned with the text rather than the viewport edge. */
+.inner::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 48px;
+  background: var(--line);
+}
+
+.heading {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.subheading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+/* ---------- My story with one photo beside it ---------- */
+
+.storyRow {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.photo {
+  position: relative;
+  min-height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px dashed rgba(22, 22, 22, 0.18);
+  border-radius: 16px;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+}
+
+.storyPlaceholder {
+  margin-top: 12px;
+  max-width: 68ch;
+  flex: 1;
+  min-height: 160px;
+  padding: 20px;
+  border: 1px dashed rgba(22, 22, 22, 0.18);
+  border-radius: 16px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* ---------- Get in touch ---------- */
+
+.contact {
+  margin-top: 48px;
+}
+
+.ask {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 68ch;
+  margin-top: 16px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.askTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.askList {
+  display: grid;
+  gap: 8px;
+  padding-left: 18px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #6f6a64;
+}
+
+.askList strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.askLink {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.askLink:hover {
+  border-color: currentColor;
+}
+
+.askLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    margin-top: 64px;
+  }
+
+  .storyRow {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+}

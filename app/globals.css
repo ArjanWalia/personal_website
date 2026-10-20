@@ -3,8 +3,13 @@
   --surface: #efe6d6;
   --foreground: #161616;
   --muted: #5b5248;
+  --body: #2c2620;
   --accent: #8b5a2b;
+  --line: rgba(22, 22, 22, 0.1);
   --nav-height: 64px;
+  /* Shared layout grid: every section uses the same width and gutter so edges line up. */
+  --container: 1200px;
+  --gutter: clamp(20px, 5vw, 48px);
 }
 
 html {
