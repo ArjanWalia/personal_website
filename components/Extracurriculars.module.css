@@ -1,0 +1,204 @@
+.section {
+  --orange: #fb8c3c;
+  --orange-dark: #e07020;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 10vw, 160px);
+  padding-bottom: 96px;
+  scroll-margin-top: var(--nav-height);
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+/* ---------- Filter buttons ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.filter {
+  padding: 12px 22px;
+  border: 1.5px solid #e2ddd5;
+  border-radius: 12px;
+  background: #fff;
+  color: #5f5a54;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.filter:hover {
+  border-color: #cfc8bd;
+  color: var(--foreground);
+}
+
+.filter[aria-pressed="true"] {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #fff;
+  box-shadow: -3px 3px 0 var(--orange-dark);
+}
+
+.filter:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ---------- Cards ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ece7df;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(22, 22, 22, 0.08);
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* Background-style video: fills the frame, no controls, not interactive. */
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--surface),
+    var(--surface) 12px,
+    #e9dec9 12px,
+    #e9dec9 24px
+  );
+}
+
+.body {
+  padding: 22px 24px 26px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.readMore {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--orange);
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.readMore:hover {
+  background: var(--orange-dark);
+}
+
+.readMore:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+
+.description,
+.highlights {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #6f6a64;
+}
+
+.description {
+  margin-top: 12px;
+}
+
+.highlights {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+/* Collapsed cards show the first few lines; "Read more" reveals the rest. */
+.clamped {
+  max-height: calc(0.98rem * 1.6 * 3 + 12px);
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, #000 60%, transparent);
+}

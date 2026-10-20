@@ -1,0 +1,29 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  height: var(--nav-height);
+  padding: 0 clamp(16px, 5vw, 72px);
+  background: #fff;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.08);
+}
+
+.home {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  transition: color 0.15s ease;
+}
+
+.home:hover {
+  color: var(--accent);
+}
+
+.home:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
