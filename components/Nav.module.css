@@ -45,14 +45,14 @@
 
 .links {
   display: flex;
-  gap: 40px;
+  gap: 60px;
 }
 
 /* compact all-caps labels, spaced apart so each reads as its own item */
 .link {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--muted);
@@ -71,11 +71,11 @@
 
 @media (max-width: 640px) {
   .links {
-    gap: 14px;
+    gap: 20px;
   }
 
   .link {
-    font-size: 0.66rem;
-    letter-spacing: 0.06em;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
   }
 }

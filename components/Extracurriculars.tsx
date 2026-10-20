@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { activities, filters, type Activity, type Filter } from "./activities";
 import CategoryIcon from "./CategoryIcon";
 import styles from "./Extracurriculars.module.css";
@@ -9,13 +9,41 @@ import styles from "./Extracurriculars.module.css";
 export default function Extracurriculars() {
   const [active, setActive] = useState<Filter>("All");
   const rowRef = useRef<HTMLDivElement>(null);
-  // Scroll the card row by roughly one card in either direction.
-  const scrollRow = (direction: 1 | -1) => {
+  const [current, setCurrent] = useState(0);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  /** Distance from one card's left edge to the next (card width plus the gap). */
+  const step = useCallback(() => {
+    const cards = rowRef.current?.querySelectorAll("article");
+    if (!cards || cards.length < 2) return cards?.[0]?.getBoundingClientRect().width ?? 0;
+    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+  }, []);
+
+  // Track which card is at the left edge, and whether either end has been reached.
+  const updatePosition = useCallback(() => {
     const row = rowRef.current;
-    const card = row?.querySelector("article");
-    if (!row || !card) return;
-    row.scrollBy({ left: direction * (card.getBoundingClientRect().width + 20), behavior: "smooth" });
+    if (!row) return;
+    const size = step();
+    const end = row.scrollLeft + row.clientWidth >= row.scrollWidth - 2;
+    const count = row.querySelectorAll("article").length;
+    // The last few cards can't reach the left edge, so the end of the row counts as the last card.
+    setCurrent(end ? count - 1 : size ? Math.round(row.scrollLeft / size) : 0);
+    setAtStart(row.scrollLeft <= 2);
+    setAtEnd(end);
+  }, [step]);
+
+  const goTo = (index: number) => {
+    rowRef.current?.scrollTo({ left: index * step(), behavior: "smooth" });
   };
+
+  // A new filter remounts the row at the start, so re-measure after each switch and on resize.
+  useEffect(() => {
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    return () => window.removeEventListener("resize", updatePosition);
+  }, [active, updatePosition]);
+
   const visible = active === "All" ? activities : activities.filter((a) => a.filter === active);
 
   return (
@@ -38,23 +66,49 @@ export default function Extracurriculars() {
           ))}
         </div>
 
-        <div className={styles.rowControls}>
-          <button type="button" className={styles.arrow} onClick={() => scrollRow(-1)} aria-label="Previous cards">
+        <div className={styles.carousel} role="region" aria-roledescription="carousel" aria-label="Portfolio">
+          <button
+            type="button"
+            className={`${styles.arrow} ${styles.arrowPrev}`}
+            onClick={() => goTo(Math.max(current - 1, 0))}
+            disabled={atStart}
+            aria-label="Previous card"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 5l-7 7 7 7" />
             </svg>
           </button>
-          <button type="button" className={styles.arrow} onClick={() => scrollRow(1)} aria-label="Next cards">
+
+          {/* Keyed by filter so the cards remount and fade in again on every switch. */}
+          <div key={active} ref={rowRef} className={styles.grid} onScroll={updatePosition}>
+            {visible.map((activity, i) => (
+              <ActivityCard key={activity.title} activity={activity} index={i} />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className={`${styles.arrow} ${styles.arrowNext}`}
+            onClick={() => goTo(current + 1)}
+            disabled={atEnd}
+            aria-label="Next card"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
-        {/* Keyed by filter so the cards remount and fade in again on every switch. */}
-        <div key={active} ref={rowRef} className={styles.grid}>
+        <div className={styles.dots} role="group" aria-label="Choose a card">
           {visible.map((activity, i) => (
-            <ActivityCard key={activity.title} activity={activity} index={i} />
+            <button
+              key={activity.title}
+              type="button"
+              className={styles.dot}
+              aria-label={`Go to ${activity.name}`}
+              aria-current={i === current ? "true" : undefined}
+              onClick={() => goTo(i)}
+            />
           ))}
         </div>
       </div>

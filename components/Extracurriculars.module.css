@@ -75,29 +75,41 @@
 
 /* ---------- Cards ---------- */
 
-.rowControls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-top: 20px;
+/* ---------- Carousel ---------- */
+
+.carousel {
+  position: relative;
+  margin-top: 28px;
 }
 
+/* Round arrows sit over the left and right edges, level with the card images. */
 .arrow {
+  position: absolute;
+  top: 100px;
+  z-index: 2;
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(22, 22, 22, 0.12);
   color: var(--foreground);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease, background 0.15s ease;
 }
 
-.arrow:hover {
+.arrow:hover:not(:disabled) {
   background: #fff;
-  border-color: rgba(22, 22, 22, 0.3);
+}
+
+.arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .arrow:focus-visible {
@@ -106,8 +118,8 @@
 }
 
 .arrow svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.2;
@@ -115,18 +127,58 @@
   stroke-linejoin: round;
 }
 
+.arrowPrev {
+  left: -22px;
+}
+
+.arrowNext {
+  right: -22px;
+}
+
+/* Dots under the row: one per card, the current one stretched into a pill. */
+.dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(22, 22, 22, 0.18);
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.dot[aria-current="true"] {
+  width: 22px;
+  background: var(--accent);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* All cards sit in one row that scrolls sideways and snaps card by card. */
 .grid {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  margin-top: 12px;
-  padding: 4px 2px 16px;
+  padding: 4px 2px 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 2px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(22, 22, 22, 0.25) transparent;
+  scrollbar-width: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
@@ -320,5 +372,15 @@
 @media (max-width: 900px) {
   .section {
     margin-top: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .arrowPrev {
+    left: 6px;
+  }
+
+  .arrowNext {
+    right: 6px;
   }
 }
