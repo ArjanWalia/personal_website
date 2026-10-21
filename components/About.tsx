@@ -18,18 +18,15 @@ export default function About() {
             In middle school, I began exploring technology to solve
             accessibility. I build technology for underserved athletes,
             neurodivergent, or physically impaired musicians, and students
-            struggling with mental health.
+            struggling with mental health. I have interned at three startups that
+            widen access in different ways, from financial inclusion and community
+            building to global medtech partnerships, and my deep research in
+            signal processing keeps challenging my assumptions.
           </p>
           <p>
-            My work spans accessibility and security technology. I have interned
-            at three startups that widen access in different ways, from financial
-            inclusion and community building to global medtech partnerships, and
-            my deep research in signal processing keeps challenging my
-            assumptions.
-          </p>
-          <p>
-            My mission remains central to how I explore the question that began
-            my journey: <em className={styles.question}>who gets access?</em>
+            Through my volunteering, research and projects I continue to explore the
+            question that began my journey:{" "}
+            <em className={styles.question}>who gets access?</em>
           </p>
         </div>
       </div>
