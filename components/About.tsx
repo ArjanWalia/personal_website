@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className={styles.section}>
       <div className={styles.inner}>
         <div>
-          <p className={styles.eyebrow}>About</p>
+          <p className={styles.eyebrow}>About Me</p>
         </div>
 
         <div className={styles.body}>

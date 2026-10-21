@@ -35,6 +35,8 @@ body {
 }
 
 body {
+  /* set here, not on :root, because next/font puts --font-mono on <body> */
+  --mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;

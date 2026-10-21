@@ -1,6 +1,7 @@
 import Image from "next/image";
 import PhotoScroller from "./PhotoScroller";
 import SocialLinks from "./SocialLinks";
+import Waveform from "./Waveform";
 import { profilePhoto, scrollerPhotos } from "./photos";
 import styles from "./Header.module.css";
 
@@ -55,6 +56,7 @@ export default function Header() {
             </span>
             <span>Danville, California</span>
           </p>
+          <Waveform />
         </div>
       </div>
     </header>

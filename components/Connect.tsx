@@ -24,7 +24,7 @@ export default function Connect() {
   return (
     <section id="connect" className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>Connect</h2>
+        <h2 className={styles.heading}>Let&rsquo;s Connect</h2>
 
         <div className={styles.contact}>
           <h3 className={styles.subheading}>Get in touch</h3>
