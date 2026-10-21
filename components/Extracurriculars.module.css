@@ -182,6 +182,8 @@
 }
 
 .card {
+  position: relative;
+  cursor: pointer;
   flex: 0 0 min(320px, 82%);
   scroll-snap-align: start;
   display: flex;
@@ -335,7 +337,7 @@
   animation: fadeIn 0.3s ease both;
 }
 
-/* Labelled write-up sections inside an expanded card */
+/* Labelled write-up sections inside the detail window */
 .writeup {
   margin-top: 16px;
 }
@@ -390,39 +392,14 @@
   font-weight: 700;
 }
 
-/* Collapsed cards show the first few lines; "Read more" reveals the rest. */
+/* Cards show a three-line summary; the full story opens in the detail window. */
 .clamped {
-  max-height: calc(0.95rem * 1.6 * 3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 
-.readMore {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  align-self: flex-start;
-  margin-top: auto;
-  padding: 4px 0 0;
-  border: none;
-  background: none;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.15s ease;
-}
-
-.readMore:hover {
-  color: var(--accent);
-}
-
-.readMore:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
 
 @media (max-width: 900px) {
   .section {
@@ -437,5 +414,181 @@
 
   .arrowNext {
     right: 6px;
+  }
+}
+
+/* ---------- Click-to-open ---------- */
+
+/* The title button is stretched over the whole card so any click opens the detail window. */
+.cardOpen {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cardOpen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.cardOpen:focus-visible {
+  outline: none;
+}
+
+.cardOpen:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Detail window ---------- */
+
+.dialog {
+  width: min(820px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--foreground);
+  box-shadow: 0 24px 80px rgba(22, 22, 22, 0.3);
+  overflow: auto;
+  overscroll-behavior: contain;
+  cursor: auto;
+}
+
+.dialog[open] {
+  animation: dialogIn 0.22s ease both;
+}
+
+.dialog::backdrop {
+  background: rgba(22, 22, 22, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dialogPanel {
+  position: relative;
+}
+
+/* Close button stays in the top-right corner while the window scrolls. */
+.dialogClose {
+  position: sticky;
+  top: 12px;
+  z-index: 3;
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 12px 12px -52px 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(22, 22, 22, 0.15);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.dialogClose:hover {
+  background: #fff;
+}
+
+.dialogClose:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.dialogClose svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.mediaLarge {
+  aspect-ratio: 16 / 9;
+}
+
+.dialogBody {
+  padding: 28px 36px 36px;
+}
+
+.dialogTitle {
+  margin-top: 10px;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.dialogText {
+  margin-top: 12px;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.dialogBody .highlights,
+.dialogBody .steps li {
+  font-size: 0.98rem;
+}
+
+.dialogBody .writeup {
+  margin-top: 22px;
+}
+
+.dialogBody .writeup .dialogText {
+  margin-top: 6px;
+}
+
+.extraGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  align-items: start;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+@media (max-width: 640px) {
+  .dialog {
+    width: calc(100% - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 16px;
+  }
+
+  .dialogBody {
+    padding: 22px 20px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
   }
 }

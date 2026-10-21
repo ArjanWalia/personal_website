@@ -116,55 +116,85 @@ export default function Extracurriculars() {
   );
 }
 
+/** The card's photo, video or embed. `large` is used inside the detail window. */
+function CardMedia({ activity, large = false }: { activity: Activity; large?: boolean }) {
+  const sizes = large ? "(max-width: 860px) 100vw, 820px" : "(max-width: 640px) 100vw, 360px";
+  const mediaClass = `${styles.media} ${large ? styles.mediaLarge : ""}`;
+
+  if (activity.embed) {
+    return (
+      <div className={`${mediaClass} ${styles.dark}`}>
+        <iframe
+          className={styles.embed}
+          src={activity.embed}
+          title={`${activity.name} post on LinkedIn`}
+          loading="lazy"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+  if (activity.video) {
+    const contain = activity.videoFit === "contain";
+    return (
+      <div className={`${mediaClass} ${contain ? styles.dark : ""}`}>
+        <video
+          className={`${styles.video} ${contain ? styles.contain : ""}`}
+          src={activity.video}
+          poster={activity.video.replace(/\.mp4$/, "-poster.jpg")}
+          aria-label={`${activity.name} video`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+        />
+      </div>
+    );
+  }
+  if (activity.image) {
+    return (
+      <div className={mediaClass}>
+        {activity.imageFit === "contain" && (
+          // Blurred copy behind the full photo fills the empty sides of the frame.
+          <Image src={activity.image} alt="" fill sizes={sizes} className={styles.backdrop} />
+        )}
+        <Image
+          src={activity.image}
+          alt={activity.name}
+          fill
+          sizes={sizes}
+          style={{ objectFit: activity.imageFit ?? "cover", objectPosition: activity.imagePosition }}
+        />
+      </div>
+    );
+  }
+  return null;
+}
+
 function ActivityCard({ activity, index }: { activity: Activity; index: number }) {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const hasMedia = Boolean(activity.embed || activity.video || activity.image);
+
+  // Open as a modal once its contents are rendered; lock page scrolling while it is up.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!open || !dialog) return;
+    if (!dialog.open) dialog.showModal();
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
+  const close = () => dialogRef.current?.close();
 
   return (
     <article className={styles.card} style={{ animationDelay: `${index * 70}ms` }}>
-      {activity.embed ? (
-        <div className={`${styles.media} ${styles.dark}`}>
-          <iframe
-            className={styles.embed}
-            src={activity.embed}
-            title={`${activity.name} post on LinkedIn`}
-            loading="lazy"
-            allowFullScreen
-          />
-        </div>
-      ) : activity.video ? (
-        <div className={`${styles.media} ${activity.videoFit === "contain" ? styles.dark : ""}`}>
-          <video
-            className={`${styles.video} ${activity.videoFit === "contain" ? styles.contain : ""}`}
-            src={activity.video}
-            poster={activity.video.replace(/\.mp4$/, "-poster.jpg")}
-            aria-label={`${activity.name} video`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            disablePictureInPicture
-            disableRemotePlayback
-          />
-        </div>
-      ) : activity.image ? (
-        <div className={styles.media}>
-          {activity.imageFit === "contain" && (
-            // Blurred copy behind the full photo fills the empty sides of the frame.
-            <Image src={activity.image} alt="" fill sizes="360px" className={styles.backdrop} />
-          )}
-          <Image
-            src={activity.image}
-            alt={activity.name}
-            fill
-            sizes="(max-width: 640px) 100vw, 360px"
-            style={{
-              objectFit: activity.imageFit ?? "cover",
-              objectPosition: activity.imagePosition,
-            }}
-          />
-        </div>
-      ) : null}
+      <CardMedia activity={activity} />
 
       <div className={styles.body}>
         {/* Cards without a photo get a small category icon instead of an empty placeholder. */}
@@ -179,64 +209,92 @@ function ActivityCard({ activity, index }: { activity: Activity; index: number }
           )}
           <p className={styles.label}>{activity.label}</p>
         </div>
-        <h3 className={styles.title}>{activity.title}</h3>
-        <div className={expanded ? undefined : styles.clamped}>
-          <p className={styles.description}>{activity.description}</p>
-          {activity.highlights && (
-            <ul className={styles.highlights}>
-              {activity.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
-          {activity.sections?.map((section) => (
-            <div key={section.heading} className={styles.writeup}>
-              <h4 className={styles.writeupHeading}>{section.heading}</h4>
-              {section.text && <p className={styles.description}>{section.text}</p>}
-              {section.list && (
+        <h3 className={styles.title}>
+          {/* Stretched over the whole card, so clicking anywhere on it opens the detail window. */}
+          <button type="button" className={styles.cardOpen} onClick={() => setOpen(true)} aria-haspopup="dialog">
+            {activity.title}
+          </button>
+        </h3>
+        <p className={`${styles.description} ${styles.clamped}`}>{activity.description}</p>
+      </div>
+
+      <dialog
+        ref={dialogRef}
+        className={styles.dialog}
+        aria-label={activity.title}
+        onClose={() => setOpen(false)}
+        // A click on the dimmed area outside the panel lands on the dialog itself.
+        onClick={(event) => event.target === event.currentTarget && close()}
+      >
+        {open && (
+          <div className={styles.dialogPanel}>
+            <button type="button" className={styles.dialogClose} onClick={close} aria-label="Close">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+
+            <CardMedia activity={activity} large />
+
+            <div className={styles.dialogBody}>
+              <div className={styles.labelRow}>
+                {activity.logo && (
+                  <Image src={activity.logo} alt="" width={24} height={24} className={styles.logo} />
+                )}
+                <p className={styles.label}>{activity.label}</p>
+              </div>
+              <h3 className={styles.dialogTitle}>{activity.title}</h3>
+              <p className={styles.dialogText}>{activity.description}</p>
+              {activity.highlights && (
                 <ul className={styles.highlights}>
-                  {section.list.map((item) => (
+                  {activity.highlights.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               )}
-              {section.steps && (
-                <ol className={styles.steps}>
-                  {section.steps.map((step) => (
-                    <li key={step}>{step}</li>
+              {activity.sections?.map((section) => (
+                <div key={section.heading} className={styles.writeup}>
+                  <h4 className={styles.writeupHeading}>{section.heading}</h4>
+                  {section.text && <p className={styles.dialogText}>{section.text}</p>}
+                  {section.list && (
+                    <ul className={styles.highlights}>
+                      {section.list.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.steps && (
+                    <ol className={styles.steps}>
+                      {section.steps.map((step) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  )}
+                </div>
+              ))}
+              {activity.extraImages && (
+                <div className={styles.extraGrid}>
+                  {activity.extraImages.map((extra) => (
+                    <div
+                      key={extra.src}
+                      className={styles.extraImage}
+                      style={extra.aspect ? { aspectRatio: extra.aspect } : undefined}
+                    >
+                      <Image
+                        src={extra.src}
+                        alt={extra.alt}
+                        fill
+                        sizes="(max-width: 860px) 100vw, 400px"
+                        style={{ objectFit: "cover", objectPosition: extra.position }}
+                      />
+                    </div>
                   ))}
-                </ol>
+                </div>
               )}
             </div>
-          ))}
-        </div>
-        {/* Only rendered once expanded, so collapsed cards don't load the extra photos. */}
-        {expanded &&
-          activity.extraImages?.map((extra) => (
-            <div
-              key={extra.src}
-              className={styles.extraImage}
-              style={extra.aspect ? { aspectRatio: extra.aspect } : undefined}
-            >
-              <Image
-                src={extra.src}
-                alt={extra.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, 360px"
-                style={{ objectFit: "cover", objectPosition: extra.position }}
-              />
-            </div>
-          ))}
-        <button
-          type="button"
-          className={styles.readMore}
-          aria-expanded={expanded}
-          onClick={() => setExpanded((e) => !e)}
-        >
-          {expanded ? "Show less" : "Read more"}
-          <span aria-hidden="true">{expanded ? "↑" : "→"}</span>
-        </button>
-      </div>
+          </div>
+        )}
+      </dialog>
     </article>
   );
 }
