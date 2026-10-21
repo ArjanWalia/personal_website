@@ -620,7 +620,7 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: 32px;
-  padding: 24px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -643,7 +643,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .awardLogo {
@@ -656,10 +656,12 @@
 
 .awardItems {
   display: grid;
-  gap: 12px;
+  /* keep the items packed at the top even when the logos beside them are taller */
+  align-content: start;
+  gap: 4px;
   padding-left: 18px;
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.45;
   color: var(--body);
 }
 
@@ -678,7 +680,7 @@
 @media (max-width: 720px) {
   .awardGroup {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 10px;
   }
 
   .awardLogo {
