@@ -266,13 +266,52 @@ export const activities: Activity[] = [
     ],
   },
   {
-    name: "UCSD COSMOS",
+    name: "UC San Diego COSMOS research",
     filter: "Research",
-    label: "Digital Signal Processing Research",
-    title: "Musical Interpolation at UCSD COSMOS",
+    label: "Digital Signal Processing Research · Team Lead",
+    title: "Musical Interpolation at UC San Diego COSMOS",
     image: "/photos/cosmos-cluster-collage.jpg",
     description:
       "I built a program that blends the sounds of two instruments, producing a single output that is perceived as both instruments combined.",
+    // Sections drawn from the "Timbral Morphing" COSMOS presentation
+    sections: [
+      {
+        heading: "Why it matters",
+        text: "Most digital audio workstations and traditional instruments constrain creators to specific sounds, limiting their expressiveness. Timbral morphing lets users design hybrid sounds by interpolating between instruments.",
+      },
+      {
+        heading: "Project goal",
+        text: "Morph the parameters of a saxophone and a viola into one instrument.",
+      },
+      {
+        heading: "How it works",
+        steps: [
+          "Record analog A4 notes and analyze them in Audacity",
+          "Map the analog features into Pure Data oscillators",
+          "Synthesize digital versions of the original instruments",
+          "Interpolate the parameters to create the hybrid instrument",
+        ],
+      },
+      {
+        heading: "What we built",
+        list: [
+          "Analyzed the raw analog signals of A4 notes in Audacity, plotting the spectrum to study frequencies and using spectrogram views to capture how the sound changes over time.",
+          "Mapped those features into Pure Data oscillators and synthesized digital versions of the saxophone and viola, modeling their amplitude envelopes and harmonics.",
+          "Added text-file imports that map directly to the oscillators in Pure Data.",
+          "Blended the two instruments with interpolation: linear for sustain and release times, logarithmic for attack times, frequencies, and amplitudes.",
+        ],
+      },
+      {
+        heading: "Team",
+        text: "I led a four-person UC San Diego COSMOS team, with Rohan Arun, Taelin Kim, and Olivia Nam.",
+      },
+      {
+        heading: "Real-world outcomes",
+        list: [
+          "Earned a strong recommendation from my COSMOS professor.",
+        ],
+      },
+    ],
   },
   {
     name: "Hinkal",
