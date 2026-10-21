@@ -49,19 +49,40 @@ export default function Connect() {
         <div className={styles.storyRow}>
           <div className={styles.story}>
             <h3 className={styles.subheading}>My story</h3>
-            {/* Arjan's own words. */}
+            {/* Arjan's own words, combined with his first NCWIT essay (his journey with technology). */}
             <div className={styles.storyText}>
               <p>
                 Growing up, beyond years of rigorous training in piano, my grandmother&rsquo;s
-                philosophy of &ldquo;<em>Seva</em>&rdquo; (selfless service) has shaped my
-                identity. A lifelong teacher, she tutors under-privileged children and pays for
-                their tuition.
+                (Dadi&rsquo;s) philosophy of &ldquo;<em>Seva</em>&rdquo; (selfless service) has
+                shaped my identity. A lifelong teacher, she tutors under-privileged children and
+                pays for their tuition.
               </p>
               <p>
-                Her philosophy of &ldquo;success is measured by what you give, not what you
-                accumulate&rdquo; is central to my design choices for vulnerable populations
-                facing barriers to accessibility. Her philosophy is always an inspiration for me
-                to continue building for accessibility.
+                As an avid pianist, I&rsquo;ve always valued my access to self-expression.
+                However, seeing others struggle with accessibility limitations made me question
+                what happens when people cannot pursue what they love. Dadi&rsquo;s philosophy of
+                &ldquo;success is measured by what you give, not what you accumulate&rdquo;
+                became central to my design choices for vulnerable populations facing barriers
+                to accessibility, and it is always an inspiration for me to continue building
+                for accessibility.
+              </p>
+              <p>
+                In middle school, I began exploring technology to answer this question. I
+                learned that accessibility barriers stem from cost, physical ability, or mental
+                health. My journey started when I coded a tennis biomechanics analyzer using
+                Node.js and React to make private coaching affordable. But I soon realized cost
+                isn&rsquo;t the only hurdle people face, so I built solutions to manage mental
+                health wellness and assist physically disabled pianists, using Python, Supabase,
+                and Pandas.
+              </p>
+              <p>
+                For a deeper understanding, I advanced research in audio processing during UC
+                San Diego&rsquo;s selective COSMOS program and through IEEE publications. These
+                experiences allowed me to address more complex challenges. I engineered a
+                sensory-safe online stage with AI monitors for marginalized musicians, and
+                developed an LLM-security framework for AI agents to prevent malicious activity,
+                which also won a hackathon. Three internships have equipped me with
+                cybersecurity and architecture expertise to build modern and safe solutions.
               </p>
               <p>
                 Putting Seva into practice continues through my service as a music therapy
