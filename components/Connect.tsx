@@ -29,8 +29,27 @@ export default function Connect() {
         <div className={styles.storyRow}>
           <div className={styles.story}>
             <h3 className={styles.subheading}>My story</h3>
-            {/* TODO: replace with your story. */}
-            <p className={styles.storyPlaceholder}>Your story will go here.</p>
+            {/* Arjan's own words. */}
+            <div className={styles.storyText}>
+              <p>
+                Growing up, beyond years of rigorous training in piano, my grandmother&rsquo;s
+                philosophy of &ldquo;<em>Seva</em>&rdquo; (selfless service) has shaped my
+                identity. A lifelong teacher, she tutors under-privileged children and pays for
+                their tuition.
+              </p>
+              <p>
+                Her philosophy of &ldquo;success is measured by what you give, not what you
+                accumulate&rdquo; is central to my design choices for vulnerable populations
+                facing barriers to accessibility. Her philosophy is always an inspiration for me
+                to continue building for accessibility.
+              </p>
+              <p>
+                Putting Seva into practice continues through my service as a music therapy
+                volunteer for people with Down Syndrome and a teaching volunteer for
+                neurodivergent children. I aspire to solve the same barrier Dadi is solving with
+                books: access.
+              </p>
+            </div>
           </div>
 
           <figure className={styles.photo}>

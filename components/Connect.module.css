@@ -75,16 +75,30 @@
   flex-direction: column;
 }
 
-.storyPlaceholder {
-  margin-top: 12px;
-  max-width: 68ch;
+.storyText {
   flex: 1;
-  min-height: 160px;
-  padding: 20px;
-  border: 1px dashed rgba(22, 22, 22, 0.18);
+  margin-top: 12px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
   border-radius: 16px;
+  background: #fff;
+}
+
+.storyText p {
+  max-width: 68ch;
   font-size: 1rem;
-  color: var(--muted);
+  line-height: 1.7;
+  color: var(--body);
+}
+
+.storyText p + p {
+  margin-top: 14px;
+}
+
+.storyText em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 /* ---------- Get in touch ---------- */
