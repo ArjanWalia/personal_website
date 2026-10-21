@@ -189,6 +189,26 @@ function ActivityCard({ activity, index }: { activity: Activity; index: number }
               ))}
             </ul>
           )}
+          {activity.sections?.map((section) => (
+            <div key={section.heading} className={styles.writeup}>
+              <h4 className={styles.writeupHeading}>{section.heading}</h4>
+              {section.text && <p className={styles.description}>{section.text}</p>}
+              {section.list && (
+                <ul className={styles.highlights}>
+                  {section.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {section.steps && (
+                <ol className={styles.steps}>
+                  {section.steps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ol>
+              )}
+            </div>
+          ))}
         </div>
         {/* Only rendered once expanded, so collapsed cards don't load the extra photos. */}
         {expanded &&
