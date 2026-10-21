@@ -1,5 +1,7 @@
 .header {
-  --profile-size: clamp(120px, 17vw, 220px);
+  --profile-size: clamp(150px, 18vw, 230px);
+  /* how far the headshot rises up into the photo carousel */
+  --profile-lift: calc(var(--profile-size) * 0.5);
   max-width: var(--container);
   margin: 0 auto;
   padding: 24px var(--gutter) 0;
@@ -108,26 +110,30 @@
 
 .intro {
   display: grid;
-  /* text column shrinks to its content so the headshot sits right beside it */
-  grid-template-columns: minmax(0, auto) var(--profile-size);
+  /* text column is as wide as its longest line (nothing wraps); headshot follows right after */
+  grid-template-columns: max-content var(--profile-size);
   justify-content: start;
   grid-template-areas:
     "name photo"
     "text photo";
   grid-template-rows: auto 1fr;
   align-items: start;
-  column-gap: clamp(28px, 4vw, 56px);
+  column-gap: clamp(20px, 2.5vw, 36px);
   padding-top: 40px;
 }
 
 .profile {
   grid-area: photo;
   position: relative;
+  z-index: 3;
   width: var(--profile-size);
   aspect-ratio: 1;
-  border-radius: 24px;
+  /* pulled up so its top part sits over the carousel */
+  margin-top: calc(-1 * var(--profile-lift));
+  border: 6px solid var(--background);
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(22, 22, 22, 0.14);
+  box-shadow: 0 16px 40px rgba(22, 22, 22, 0.2);
   background: var(--surface);
 }
 
@@ -191,9 +197,9 @@
 /* ---------- Small screens ---------- */
 
 @media (max-width: 720px) {
-  /* photo stays beside the name; the rest of the text runs full width below */
+  /* phones: headshot stays to the right of the name; details run full width below */
   .intro {
-    grid-template-columns: minmax(0, 1fr) 96px;
+    grid-template-columns: minmax(0, 1fr) 124px;
     grid-template-areas:
       "name photo"
       "text text";
@@ -202,8 +208,10 @@
   }
 
   .profile {
-    width: 96px;
-    border-radius: 18px;
+    width: 124px;
+    margin-top: -56px;
+    border-width: 4px;
+    border-radius: 20px;
   }
 
   .name {
