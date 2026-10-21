@@ -1,9 +1,48 @@
+import Image from "next/image";
+import type React from "react";
 import styles from "./Connect.module.css";
 
 const EMAIL = "waliaarjan96@gmail.com";
 
-// TODO: add a photo under /public/photos and set `src` to show it instead of the placeholder.
-const storyPhoto: { caption: string; src?: string } = { caption: "Arjan Walia" };
+// Photos scattered beside My story like prints on a table, turned a few degrees and overlapping.
+// Positions are in layout units: the collage is 100 units wide (sizes follow its width) and
+// LAYOUT_HEIGHT units tall, with tops spread over My story's full height (see .print in the CSS). Files live in /public/photos/story.
+type StoryPhoto = {
+  src: string;
+  alt: string;
+  /** left and top edge, in layout units */
+  x: number;
+  y: number;
+  /** width, in layout units */
+  w: number;
+  /** tilt in degrees */
+  r: number;
+  /** frame shape, matching the photo; "4 / 3" when not set */
+  aspect?: string;
+  /** stacking order: higher sits on top */
+  z: number;
+  position?: string;
+};
+
+// Three overlapping columns that mix piano, travel, awards and tennis. Each frame matches its
+// photo's shape, so nothing is cropped. Group photos sit on top, so only the outer edges of
+// single portraits (where no faces are) get covered.
+const LAYOUT_HEIGHT = 218;
+
+const storyPhotos: StoryPhoto[] = [
+  { src: "/photos/story/4661.jpg", alt: "Arjan performing on a Steinway at Carnegie Hall", x: 0, y: 2, w: 43, r: -4, z: 1 },
+  { src: "/photos/story/5884.jpg", alt: "Arjan with family at the Golden Temple", x: 0, y: 44.6, w: 43, r: 3, z: 21 },
+  { src: "/photos/story/1129.jpg", alt: "Arjan on the tennis court with his racquet", x: 0, y: 87.3, w: 40, r: -3, aspect: "2 / 3", z: 3 },
+  { src: "/photos/story/2384.jpg", alt: "Arjan holding a tennis trophy", x: 0, y: 157.7, w: 43, r: 4, aspect: "3 / 4", z: 4 },
+  { src: "/photos/story/1149.jpg", alt: "Cal High men's tennis team, 2025 EBAL champions", x: 27.0, y: 0, w: 46, r: 3, aspect: "16 / 9", z: 20 },
+  { src: "/photos/story/1497.jpg", alt: "Arjan with a tennis trophy", x: 27.0, y: 27.6, w: 46, r: -4, aspect: "3 / 4", z: 11 },
+  { src: "/photos/story/2743.jpg", alt: "Arjan receiving an award", x: 27.0, y: 90.6, w: 46, r: 4, aspect: "3 / 4", z: 22 },
+  { src: "/photos/story/0834.jpg", alt: "Arjan holding a tennis trophy", x: 27.0, y: 153.7, w: 46, r: -3, aspect: "3 / 4", z: 13 },
+  { src: "/photos/story/6069.jpg", alt: "Arjan at the Taj Mahal", x: 57, y: 1, w: 43, r: 4, aspect: "3 / 4", z: 1 },
+  { src: "/photos/story/6039.jpg", alt: "Arjan with family on a trip in India", x: 57, y: 69.9, w: 43, r: -3, z: 21 },
+  { src: "/photos/story/1525.jpg", alt: "Arjan wearing a tournament medal", x: 57, y: 113.8, w: 43, r: 3, aspect: "3 / 4", z: 3 },
+  { src: "/photos/story/4510.jpg", alt: "Winners' concert on stage at Carnegie Hall", x: 57, y: 182.8, w: 43, r: -4, z: 23 },
+];
 
 const asks = [
   {
@@ -97,11 +136,35 @@ export default function Connect() {
           </div>
 
           <figure className={styles.photo}>
-            {storyPhoto.src ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={storyPhoto.src} alt={storyPhoto.caption} />
+            {storyPhotos.length > 0 ? (
+              <div className={styles.collage} style={{ "--layout-h": LAYOUT_HEIGHT } as React.CSSProperties}>
+                {storyPhotos.map((photo) => (
+                  <div
+                    key={photo.src}
+                    className={styles.print}
+                    style={
+                      {
+                        "--x": photo.x,
+                        "--y": photo.y,
+                        "--w": photo.w,
+                        aspectRatio: photo.aspect ?? "4 / 3",
+                        zIndex: photo.z,
+                        "--tilt": `${photo.r}deg`,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 640px) 40vw, 200px"
+                      style={{ objectFit: "cover", objectPosition: photo.position }}
+                    />
+                  </div>
+                ))}
+              </div>
             ) : (
-              <div className={styles.placeholder}>Photo coming soon</div>
+              <div className={styles.placeholder}>Photos coming soon</div>
             )}
           </figure>
         </div>
