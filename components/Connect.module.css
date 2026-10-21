@@ -101,6 +101,17 @@
   color: var(--accent);
 }
 
+/* Closing line: body text with a brown rule on the left, matching About's last line. */
+.storyText p.storyClosing {
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+}
+
+.storyKey {
+  font-weight: 600;
+  color: var(--accent);
+}
+
 /* ---------- Get in touch ---------- */
 
 .contact {

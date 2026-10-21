@@ -41,6 +41,12 @@
   margin-top: 18px;
 }
 
+/* Closing line, set off by a brown rule on the left. */
+.body p.closing {
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+}
+
 .question {
   font-style: normal;
   font-weight: 600;

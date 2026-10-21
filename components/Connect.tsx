@@ -87,8 +87,11 @@ export default function Connect() {
               <p>
                 Putting Seva into practice continues through my service as a music therapy
                 volunteer for people with Down Syndrome and a teaching volunteer for
-                neurodivergent children. I aspire to solve the same barrier Dadi is solving with
-                books: access.
+                neurodivergent children.
+              </p>
+              <p className={styles.storyClosing}>
+                I aspire to solve the same barrier Dadi is solving with books:{" "}
+                <span className={styles.storyKey}>access.</span>
               </p>
             </div>
           </div>

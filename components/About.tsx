@@ -23,7 +23,7 @@ export default function About() {
             building to global medtech partnerships, and my deep research in
             signal processing keeps challenging my assumptions.
           </p>
-          <p>
+          <p className={styles.closing}>
             Through my volunteering, research and projects I continue to explore the
             question that began my journey:{" "}
             <em className={styles.question}>who gets access?</em>
