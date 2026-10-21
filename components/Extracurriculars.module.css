@@ -624,6 +624,11 @@
   border-bottom: 1px solid var(--line);
 }
 
+/* the Let's Connect hairline follows straight after, so the last group needs no rule of its own */
+.awardGroup:last-child {
+  border-bottom: none;
+}
+
 .awardGroupHeading {
   font-family: var(--mono);
   font-size: 0.74rem;
