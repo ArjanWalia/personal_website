@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { activities, filters, type Activity, type Filter } from "./activities";
+import { awardGroups } from "./awards";
 import CategoryIcon from "./CategoryIcon";
 import styles from "./Extracurriculars.module.css";
 
@@ -110,6 +111,40 @@ export default function Extracurriculars() {
               onClick={() => goTo(i)}
             />
           ))}
+        </div>
+
+        {/* Awards: one list, grouped by area, each group with its logos. */}
+        <div className={styles.awards}>
+          <h3 className={styles.awardsHeading}>Awards</h3>
+          <ul className={styles.awardList}>
+            {awardGroups.map((group) => (
+              <li key={group.heading} className={styles.awardGroup}>
+                <div className={styles.awardSide}>
+                  <h4 className={styles.awardGroupHeading}>{group.heading}</h4>
+                  <div className={styles.awardLogos}>
+                    {group.logos.map((logo) => (
+                      <Image
+                        key={logo.src}
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={logo.width}
+                        height={logo.height}
+                        className={styles.awardLogo}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <ul className={styles.awardItems}>
+                  {group.awards.map((award) => (
+                    <li key={award.title}>
+                      <span className={styles.awardTitle}>{award.title}</span>
+                      {award.detail && <span className={styles.awardDetail}>{award.detail}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

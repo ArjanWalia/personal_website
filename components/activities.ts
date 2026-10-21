@@ -7,7 +7,6 @@ export const filters = [
   "Music",
   "Sports",
   "Volunteering",
-  "Awards",
 ] as const;
 
 export type Filter = (typeof filters)[number];
@@ -447,64 +446,5 @@ export const activities: Activity[] = [
     image: "/photos/disable-the-difference.jpg",
     description:
       "I serve as a buddy for neurodiverse kids with Disable the Difference, a nonprofit that runs free programs and friendship for youth with intellectual and developmental disabilities.",
-  },
-  {
-    name: "Piano awards",
-    filter: "Awards",
-    label: "Music",
-    title: "International Piano Competitions",
-    // Logos from grandprizevirtuosointernationalmusiccompetition.com, carnegiehall.org and specialvenue.org
-    image: "/photos/piano-awards-logos.jpg",
-    description: "Prizes and performances include:",
-    highlights: [
-      "Carnegie Hall Winner's Concert with the Royal Foundation",
-      "Stanford University",
-      "Berlin Grand Prize Virtuoso",
-      "Global Genius Music",
-    ],
-  },
-  {
-    name: "Voice Cursor hackathon",
-    filter: "Awards",
-    label: "Hackathon · June 2026",
-    title: "First Prize, Voice Cursor Hackathon",
-    image: "/photos/voice-cursor-tile.jpg",
-    description:
-      "Won first prize for Agent-Secure, a security framework that screens an AI agent's file and shell actions before they run.",
-  },
-  {
-    name: "Contra Costa science fair",
-    filter: "Awards",
-    label: "Science Fair · March 2026",
-    title: "3rd Place, Contra Costa County Science Fair",
-    // Fair wordmark recreated in its colours from sites.google.com/ba-leeds.org/cccscienceengineeringfair
-    image: "/photos/cccsef-logo-tile.jpg",
-    description:
-      "Placed third for VirtuosoFix, my technology assistant for pianists with limited dexterity.",
-  },
-  {
-    name: "Tennis awards",
-    filter: "Awards",
-    label: "Sports",
-    title: "Tennis MVP & Tournament Wins",
-    // Cal High logo (chs.srvusd.net) and USTA logo (usta.com)
-    image: "/photos/tennis-awards-logos.jpg",
-    description: "On the court:",
-    highlights: [
-      "Team MVP, leading the team to an undefeated 2025 season",
-      "Multiple USTA Level 7 tournament wins",
-    ],
-  },
-  {
-    name: "School honors",
-    filter: "Awards",
-    label: "Academic & Athletic Honors · 2025–26",
-    title: "School and Section Honors",
-    description: "Recognized for balancing athletics and academics:",
-    highlights: [
-      "North Coast Section CIF President's List",
-      "Varsity Athletic Award",
-      "Certificate of Academic Achievement",
-    ],
   },
 ];

@@ -32,14 +32,6 @@ const paths: Record<Activity["filter"], ReactNode> = {
       <circle cx="16.5" cy="16" r="2.5" />
     </>
   ),
-  // medal on a ribbon
-  Awards: (
-    <>
-      <path d="M8 3h8l-2.5 6h-3L8 3Z" />
-      <circle cx="12" cy="15" r="6" />
-      <path d="m12 12.2.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 14.3l2-.3.9-1.8Z" />
-    </>
-  ),
   // heart in an open hand
   Volunteering: (
     <path d="M12 12.5c-1.6-1.4-4-3-4-5a2 2 0 0 1 4-.6 2 2 0 0 1 4 .6c0 2-2.4 3.6-4 5ZM3 14h3l3.5 2.5H14a1.5 1.5 0 0 0 0-3h-3M6 20l2-1.5h6l6-4.5a1.5 1.5 0 0 0-2-2.2l-3.5 2.2" />

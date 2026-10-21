@@ -44,7 +44,6 @@ export default function Waveform() {
           );
         })}
       </svg>
-      <figcaption className={styles.caption}>Arjan at the piano · 20 sec</figcaption>
     </figure>
   );
 }
