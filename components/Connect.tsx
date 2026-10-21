@@ -26,6 +26,26 @@ export default function Connect() {
       <div className={styles.inner}>
         <h2 className={styles.heading}>Connect</h2>
 
+        <div className={styles.contact}>
+          <h3 className={styles.subheading}>Get in touch</h3>
+          <div className={styles.ask}>
+            <span className={styles.askTitle}>Speaking, Mentorship &amp; Research</span>
+            <ul className={styles.askList}>
+              {asks.map((ask) => (
+                <li key={ask.title}>
+                  <strong>{ask.title}:</strong> {ask.description}
+                </li>
+              ))}
+            </ul>
+            <a
+              className={styles.askLink}
+              href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
+            >
+              Email me <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
         <div className={styles.storyRow}>
           <div className={styles.story}>
             <h3 className={styles.subheading}>My story</h3>
@@ -60,26 +80,6 @@ export default function Connect() {
               <div className={styles.placeholder}>Photo coming soon</div>
             )}
           </figure>
-        </div>
-
-        <div className={styles.contact}>
-          <h3 className={styles.subheading}>Get in touch</h3>
-          <div className={styles.ask}>
-            <span className={styles.askTitle}>Speaking, Mentorship &amp; Research</span>
-            <ul className={styles.askList}>
-              {asks.map((ask) => (
-                <li key={ask.title}>
-                  <strong>{ask.title}:</strong> {ask.description}
-                </li>
-              ))}
-            </ul>
-            <a
-              className={styles.askLink}
-              href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
-            >
-              Email me <span aria-hidden="true">→</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>
