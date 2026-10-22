@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { activities, filters, type Activity, type Filter } from "./activities";
 import { awardGroups } from "./awards";
+import { skillGroups } from "./skills";
 import CategoryIcon from "./CategoryIcon";
 import styles from "./Extracurriculars.module.css";
 
@@ -111,6 +112,23 @@ export default function Extracurriculars() {
               onClick={() => goTo(i)}
             />
           ))}
+        </div>
+
+        {/* Technical skills: one row per area, skills run inline with small brown dots between them. */}
+        <div className={styles.skills}>
+          <h3 className={styles.awardsHeading}>Technical Skills</h3>
+          <ul className={styles.skillList}>
+            {skillGroups.map((group) => (
+              <li key={group.heading} className={styles.skillGroup}>
+                <h4 className={styles.awardGroupHeading}>{group.heading}</h4>
+                <ul className={styles.skillItems}>
+                  {group.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Awards: one list, grouped by area, each group with its logos. */}

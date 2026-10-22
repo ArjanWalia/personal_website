@@ -595,6 +595,53 @@
   }
 }
 
+/* ---------- Technical skills: under the carousel, above Awards ---------- */
+
+.skills {
+  margin-top: 56px;
+}
+
+.skillList {
+  margin-top: 16px;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.skillGroup {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* skills run inline, separated by a small brown dot */
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2px;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--foreground);
+}
+
+.skillItems li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* the dot follows each skill, so a wrapped line never starts with one */
+.skillItems li:not(:last-child)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 /* ---------- Awards: one list under the carousel, grouped by area ---------- */
 
 .awards {
@@ -678,6 +725,12 @@
 }
 
 @media (max-width: 720px) {
+  .skillGroup {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+
   .awardGroup {
     grid-template-columns: 1fr;
     gap: 10px;
