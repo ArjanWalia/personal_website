@@ -156,22 +156,6 @@ export const activities: Activity[] = [
         text: "The increasing maritime traffic introduces more ambient noise affecting marine life. In addition, current methods of vessel identification require the ships to input information independently, introducing a security issue. Hence, a reliable and safe way of identifying aspects of vessels is needed.",
       },
       {
-        heading: "What I built",
-        list: [
-          "Utilized a public hydrophone dataset of 150+ wav files on motor noise",
-          "Trained and tested various ML-parameter-preprocessing combination",
-          "Optimized for model efficiency and accuracy",
-        ],
-      },
-      {
-        heading: "What I learned",
-        text: "Lightweight ML models taught me the power of resource-constrained computing. A compact model can outperform a larger one through just size, making on-device inference realistic, cost-effective, and secure.",
-      },
-      {
-        heading: "A mistake that made me grow",
-        text: "An early result showed 97% accuracy, but the test set contained only 37 clips, and two classes had only four or five examples. It was a warning about trusting an impressive number. Now I separate training, validation and testing, report sample counts, examine subgroup performance, and never present a limited pilot as proof that a system works for everyone.",
-      },
-      {
         heading: "Real-world outcomes",
         list: [
           "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning.”",
@@ -203,24 +187,6 @@ export const activities: Activity[] = [
           "Calibrated fusion: stress index 0–100",
           "Original Suno music library / Spotify picks via Claude",
         ],
-      },
-      {
-        heading: "What I built",
-        list: [
-          "A dual-branch deep learning model: a CNN + LSTM over raw time-series, fused with an MLP over extracted features.",
-          "The full ML pipeline: merged several stress datasets with per-subject z-score normalization, then trained and temperature-calibrated the fusion model to output a continuous 0–100 stress index.",
-          "A custom Arduino sensor circuit capturing 5 channels (BPM, HRV, EDA, skin temperature, motion) streamed over serial into real-time inference.",
-          "An original adaptive music library made with Suno and organized by stress state, played through a browser crossfading engine that transitions as stress changes.",
-          "A Spotify option: the Anthropic API suggests songs for the user’s stress state and taste, the Spotify Search API finds real tracks, and the Web Playback SDK streams them in the browser.",
-        ],
-      },
-      {
-        heading: "What I learned",
-        text: "A sensing system must reject unreliable readings instead of guessing. I also learned to distinguish a promising research result from evidence that the complete system works.",
-      },
-      {
-        heading: "A mistake that made me grow",
-        text: "Repeated identical sensor readings produced zero-millisecond gaps between heartbeats, which could falsely report a student as maximally stressed. I updated the code to detect and drop those readings, and made quality gating a core part of the design.",
       },
       {
         heading: "Real-world outcomes",
@@ -266,10 +232,6 @@ export const activities: Activity[] = [
           "Added text-file imports that map directly to the oscillators in Pure Data.",
           "Blended the two instruments with interpolation: linear for sustain and release times, logarithmic for attack times, frequencies, and amplitudes.",
         ],
-      },
-      {
-        heading: "Team",
-        text: "I led a four-person UC San Diego COSMOS team, with Rohan Arun, Taelin Kim, and Olivia Nam.",
       },
       {
         heading: "Real-world outcomes",
@@ -319,7 +281,7 @@ export const activities: Activity[] = [
     title: "California High School, Class of 2028",
     // Grizzly logo from chs.srvusd.net
     image: "/photos/cal-high-logo-tile.jpg",
-    description: "GPA: 4.14 weighted / 3.93 unweighted. Coursework includes:",
+    description: "GPA: 4.5 weighted / 3.93 unweighted. Coursework includes:",
     highlights: ["AP Calculus", "AP Computer Science", "AP Physics", "Engineering"],
   },
   {

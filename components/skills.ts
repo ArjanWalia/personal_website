@@ -2,7 +2,7 @@
 export const skillGroups: { heading: string; skills: string[] }[] = [
   {
     heading: "Software Engineering",
-    skills: ["Python", "JavaScript", "Node.js", "PostgreSQL", "Supabase", "Tailwind CSS", "HTML", "FastAPI"],
+    skills: ["Python", "JavaScript", "Node.js", "PostgreSQL", "Supabase", "Tailwind CSS", "HTML", "FastAPI", "Blockchain Infrastructure"],
   },
   {
     heading: "AI & Security",

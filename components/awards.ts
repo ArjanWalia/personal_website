@@ -37,7 +37,6 @@ export const awardGroups: AwardGroup[] = [
     awards: [
       {
         title: "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning”",
-        detail: "From my research on identifying vessel motors by their sound, reaching 89–95% test accuracy.",
       },
       {
         title: "First Prize, Voice Cursor Hackathon · June 2026",
