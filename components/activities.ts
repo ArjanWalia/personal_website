@@ -84,35 +84,6 @@ export const activities: Activity[] = [
     ],
   },
   {
-    name: "AdapTune",
-    filter: "Projects",
-    label: "Accessibility Technology",
-    title: "AdapTune: AI-Powered Music for Stress Management",
-    description:
-      "I built AdapTune, an app that helps students manage stress through adaptive music, and brought it to my school's wellness center so any student can use it.",
-    sections: [
-      {
-        heading: "What I built",
-        text: "AdapTune is an adaptive music wellness app. It explores how physiological signals can guide a more personal listening experience, using music as the intervention.",
-      },
-      {
-        heading: "What I learned",
-        text: "Reliable technology depends not only on code, but also on trust from my users and how carefully I interpret their inputs. Building AdapTune gave me a clearer idea of who it is for, and whether it helps those I aim to serve.",
-      },
-      {
-        heading: "A mistake that made me grow",
-        text: "At first, I thought students simply couldn’t handle stress without counselors. Feedback from my school’s wellness staff moved the whole project to a gap I didn’t know existed: supporting independent practice.",
-      },
-      {
-        heading: "Real-world outcomes",
-        list: [
-          "Integrated into student support sessions at my school’s wellness center, alongside coping resources from TED-Ed and Stanford Connect.",
-          "Beta-tested with my local community.",
-        ],
-      },
-    ],
-  },
-  {
     name: "VirtuosoFix",
     filter: "Projects",
     label: "Accessibility Technology",
@@ -159,6 +130,16 @@ export const activities: Activity[] = [
         ],
       },
     ],
+  },
+  {
+    name: "AdapTune",
+    filter: "Projects",
+    label: "Accessibility Technology",
+    title: "AI-Powered Adaptive Music for Stress Management",
+    // Placeholder until there is a photo or demo of the app
+    image: "/photos/adaptune-coming-soon.jpg",
+    description:
+      "Amid rising mental health crises in US high school students, I am working on the idea of an accessible and private app to help students manage stress through adaptive music.",
   },
   {
     name: "IEEE",

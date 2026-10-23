@@ -68,7 +68,17 @@ export default function Connect() {
         <div className={styles.contact}>
           <h3 className={styles.subheading}>Get in touch</h3>
           <div className={styles.ask}>
-            <span className={styles.askTitle}>Speaking, Mentorship &amp; Research</span>
+            {/* Header row: the email link on the left, the title on the right */}
+            <div className={styles.askHeader}>
+              <a
+                className={styles.askLink}
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
+              >
+                Email me for speaking, mentorship or research opportunities{" "}
+                <span aria-hidden="true">→</span>
+              </a>
+              <span className={styles.askTitle}>Speaking, Mentorship &amp; Research</span>
+            </div>
             <ul className={styles.askList}>
               {asks.map((ask) => (
                 <li key={ask.title}>
@@ -76,12 +86,6 @@ export default function Connect() {
                 </li>
               ))}
             </ul>
-            <a
-              className={styles.askLink}
-              href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
-            >
-              Email me <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
 
