@@ -26,13 +26,19 @@ export const awardGroups: AwardGroup[] = [
     ],
   },
   {
-    heading: "Technology",
-    // Voice Cursor logo (voicecursor) and the fair wordmark from sites.google.com/ba-leeds.org/cccscienceengineeringfair
+    heading: "Technology & Research",
+    // Voice Cursor logo (voicecursor), the fair wordmark from sites.google.com/ba-leeds.org/cccscienceengineeringfair,
+    // and the IEEE mark from commons.wikimedia.org/wiki/File:IEEE_logo.svg
     logos: [
+      { src: "/photos/awards/ieee.jpg", alt: "IEEE", width: 346, height: 120 },
       { src: "/photos/awards/voice-cursor.jpg", alt: "Voice Cursor", width: 480, height: 120 },
       { src: "/photos/awards/cccsef.jpg", alt: "Contra Costa County Science & Engineering Fair", width: 246, height: 120 },
     ],
     awards: [
+      {
+        title: "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning”",
+        detail: "From my research on identifying vessel motors by their sound, reaching 89–95% test accuracy.",
+      },
       {
         title: "First Prize, Voice Cursor Hackathon · June 2026",
         detail: "For Agent-Secure, a security framework that screens an AI agent's file and shell actions before they run.",
