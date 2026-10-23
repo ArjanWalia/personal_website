@@ -88,8 +88,6 @@ export const activities: Activity[] = [
     filter: "Projects",
     label: "Accessibility Technology",
     title: "AdapTune: AI-Powered Music for Stress Management",
-    // Self-hosted copy of https://youtu.be/TxJcAe0iZHA (a YouTube embed shows player controls)
-    video: "/videos/adaptune.mp4",
     description:
       "I built AdapTune, an app that helps students manage stress through adaptive music, and brought it to my school's wellness center so any student can use it.",
     sections: [
@@ -170,35 +168,23 @@ export const activities: Activity[] = [
     // Landing page of IEEE SoutheastCon (ieeesoutheastcon.org)
     image: "/photos/ieee-southeastcon.jpg",
     description:
-      "I evaluated machine learning models and digital signal processing techniques to improve how accurately vessel motors can be identified from their audio signatures.",
+      "I evaluated machine learning models, parameters, and digital signal processing techniques to improve how accurately vessel motors can be identified from their audio signatures.",
     sections: [
       {
         heading: "Why it matters",
-        text: "Passive acoustic monitoring identifies vessels by sound alone. The hard part is a model that still works on recordings it has never heard. This ongoing study benchmarks which combination of CNN, preprocessing, and optimizer generalizes best.",
-      },
-      {
-        heading: "How it works",
-        steps: [
-          "5 public hydrophone datasets",
-          "~18,000 one-second clips, 5 classes",
-          "Mel-spectrograms (cached)",
-          "ResNet-50 (pretrained) / VGG19",
-          "89–95% test accuracy",
-        ],
+        text: "The increasing maritime traffic introduces more ambient noise affecting marine life. In addition, current methods of vessel identification require the ships to input information independently, introducing a security issue. Hence, a reliable and safe way of identifying aspects of vessels is needed.",
       },
       {
         heading: "What I built",
         list: [
-          "Merged five public underwater acoustic datasets into one five-class dataset of about 18,000 one-second hydrophone clips.",
-          "Python pipelines for data normalization, audio segmentation, and RMS-based signal-quality curation.",
-          "Trained Microsoft’s pretrained ResNet-50 and PyTorch’s VGG19 on mel-spectrograms of the WAV clips, reaching 89–95% test accuracy.",
-          "Cut cloud training time with a precomputed mel-spectrogram cache and tar-based local staging that bypasses Google Drive bottlenecks.",
-          "Reproducible evaluation tooling: per-run confusion matrices, loss curves, and JSON training histories for side-by-side comparison.",
+          "Utilized a public hydrophone dataset of 150+ wav files on motor noise",
+          "Trained and tested various ML-parameter-preprocessing combination",
+          "Optimized for model efficiency and accuracy",
         ],
       },
       {
         heading: "What I learned",
-        text: "Lightweight convolutional models taught me the power of resource-constrained computing. A compact model can outperform a larger one, making on-device inference realistic, cost-effective and secure.",
+        text: "Lightweight ML models taught me the power of resource-constrained computing. A compact model can outperform a larger one through just size, making on-device inference realistic, cost-effective, and secure.",
       },
       {
         heading: "A mistake that made me grow",

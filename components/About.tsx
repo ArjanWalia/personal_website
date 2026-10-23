@@ -11,21 +11,18 @@ export default function About() {
         <div className={styles.body}>
           <p>
             My mission is to build and scale technology-based solutions that adapt
-            to humans, rather than asking humans to adapt. I work at the
-            intersection of music, technology and accessibility.
+            to humans, and I work at the intersection of music, technology, and
+            accessibility.
           </p>
           <p>
-            In middle school, I began exploring technology to solve
-            accessibility. I build technology for underserved athletes,
-            neurodivergent, or physically impaired musicians, and students
-            struggling with mental health. I have interned at three startups that
-            widen access in different ways, from financial inclusion and community
-            building to global medtech partnerships, and my deep research in
-            signal processing keeps challenging my assumptions.
+            I build technology for underserved athletes, neurodivergent and
+            physically impaired musicians, and students struggling with mental
+            health. I do this by combining my passions for computer science,
+            digital signal processing, and electrical engineering.
           </p>
           <p className={styles.closing}>
-            Through my volunteering, research and projects I continue to explore the
-            question that began my journey:{" "}
+            Through my volunteering, research, and projects, I continue to explore
+            the question that began my journey:{" "}
             <em className={styles.question}>who gets access?</em>
           </p>
         </div>
