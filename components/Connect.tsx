@@ -68,17 +68,16 @@ export default function Connect() {
         <div className={styles.contact}>
           <h3 className={styles.subheading}>Get in touch</h3>
           <div className={styles.ask}>
-            {/* Header row: the email link on the left, the title on the right */}
-            <div className={styles.askHeader}>
+            {/* Heading: "Email me" is the link; the rest of the line is plain heading text */}
+            <p className={styles.askTitle}>
               <a
                 className={styles.askLink}
                 href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
               >
-                Email me for speaking, mentorship or research opportunities{" "}
-                <span aria-hidden="true">→</span>
-              </a>
-              <span className={styles.askTitle}>Speaking, Mentorship &amp; Research</span>
-            </div>
+                Email me
+              </a>{" "}
+              for speaking, mentorship or research opportunities
+            </p>
             <ul className={styles.askList}>
               {asks.map((ask) => (
                 <li key={ask.title}>
