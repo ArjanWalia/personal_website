@@ -67,14 +67,6 @@ export const activities: Activity[] = [
         ],
       },
       {
-        heading: "What I learned",
-        text: "Following a disciplined technical process and building “safe” features didn’t automatically win trust from users. Accessibility is a human relationship, not just technical features and code.",
-      },
-      {
-        heading: "A mistake that made me grow",
-        text: "With a noble mission and a well-thought-out design, I assumed my platform would naturally attract nonprofits and neurodivergent musicians. Outreach to over 150 nonprofits and musicians brought only three responses, and at launch some users could not hear or see the performances. I changed my approach to work closely with my user communities through surveys, feedback channels and social media, seeking direct and uncomfortable feedback.",
-      },
-      {
         heading: "Real-world outcomes",
         list: [
           "120+ platform users, including musicians and audience members.",
@@ -115,14 +107,6 @@ export const activities: Activity[] = [
         ],
       },
       {
-        heading: "What I learned",
-        text: "Accuracy in technology is ineffective without accessibility and interpretability. Technology becomes an equalizer when it is designed with empathy and awareness of the people who use it.",
-      },
-      {
-        heading: "A mistake that made me grow",
-        text: "I initially prioritized accuracy over musical expression. My Python code misinterpreted involuntary strikes as timing errors: the algorithm was accurate, but it optimized the wrong objective. I updated the system to filter out strikes within a 160-millisecond window, turning a misinterpretation into a meaningful note and preserving the musician’s original intent.",
-      },
-      {
         heading: "Real-world outcomes",
         list: [
           "3rd place at the Contra Costa Science & Engineering Fair (March 2026).",
@@ -145,7 +129,7 @@ export const activities: Activity[] = [
     name: "IEEE",
     filter: "Research",
     label: "Digital Signal Processing Research",
-    title: "IEEE: Vessel Motor Sound Classification",
+    title: "Lightweight Underwater Acoustic Classification of Vessel Propulsion Sources",
     // Landing page of IEEE SoutheastCon (ieeesoutheastcon.org)
     image: "/photos/ieee-southeastcon.jpg",
     description:
@@ -158,7 +142,7 @@ export const activities: Activity[] = [
       {
         heading: "Real-world outcomes",
         list: [
-          "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning.”",
+          "Published at IEEE SoutheastCon 2027.",
           "89–95% test accuracy on a merged dataset of about 18,000 one-second hydrophone clips.",
           "Identified the CNN, preprocessing and optimizer combination that makes the most of limited computing resources.",
         ],
