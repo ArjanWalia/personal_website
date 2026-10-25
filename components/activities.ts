@@ -185,7 +185,7 @@ export const activities: Activity[] = [
     name: "UC San Diego COSMOS research",
     filter: "Research",
     label: "Digital Signal Processing Research · Team Lead",
-    title: "Musical Interpolation at UC San Diego COSMOS",
+    title: "Musical Interpolation at UC San Diego",
     image: "/photos/cosmos-cluster-collage.jpg",
     description:
       "I built a program that blends the sounds of two instruments, producing a single output that is perceived as both instruments combined.",
@@ -220,7 +220,7 @@ export const activities: Activity[] = [
       {
         heading: "Real-world outcomes",
         list: [
-          "Earned a strong recommendation from my COSMOS professor.",
+          "Earned a strong recommendation from my UC San Diego professor.",
         ],
       },
     ],
