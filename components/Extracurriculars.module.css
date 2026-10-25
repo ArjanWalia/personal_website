@@ -1,85 +1,211 @@
 .section {
-  --orange: #fb8c3c;
-  --orange-dark: #e07020;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(24px, 10vw, 160px);
-  padding-bottom: 96px;
+  margin-top: 40px;
   scroll-margin-top: var(--nav-height);
 }
 
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Hairline above the section, aligned with the text rather than the viewport edge. */
+.inner::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 24px;
+  background: var(--line);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 10px;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.1;
   color: var(--foreground);
 }
 
-/* ---------- Filter buttons ---------- */
+/* ---------- Filter pills ---------- */
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   margin-top: 24px;
 }
 
 .filter {
-  padding: 12px 22px;
-  border: 1.5px solid #e2ddd5;
-  border-radius: 12px;
-  background: #fff;
-  color: #5f5a54;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
   font: inherit;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .filter:hover {
-  border-color: #cfc8bd;
+  border-color: rgba(22, 22, 22, 0.3);
   color: var(--foreground);
 }
 
 .filter[aria-pressed="true"] {
-  border-color: var(--orange);
-  background: var(--orange);
-  color: #fff;
-  box-shadow: -3px 3px 0 var(--orange-dark);
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
 }
 
 .filter:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 /* ---------- Cards ---------- */
 
-.grid {
+/* ---------- Carousel ---------- */
+
+.carousel {
+  position: relative;
+  margin-top: 28px;
+}
+
+/* Round arrows sit over the left and right edges, level with the card images. */
+.arrow {
+  position: absolute;
+  top: 100px;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: 24px;
-  margin-top: 32px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(22, 22, 22, 0.12);
+  color: var(--foreground);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease, background 0.15s ease;
+}
+
+.arrow:hover:not(:disabled) {
+  background: #fff;
+}
+
+.arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arrowPrev {
+  left: -22px;
+}
+
+.arrowNext {
+  right: -22px;
+}
+
+/* Dots under the row: one per card, the current one stretched into a pill. */
+.dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(22, 22, 22, 0.18);
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.dot[aria-current="true"] {
+  width: 22px;
+  background: var(--accent);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* All cards sit in one row that scrolls sideways and snaps card by card. */
+.grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 4px 2px 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 2px;
+  scrollbar-width: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
+  position: relative;
+  cursor: pointer;
+  flex: 0 0 min(320px, 82%);
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ece7df;
+  border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(22, 22, 22, 0.08);
-  animation: fadeIn 0.5s ease both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeIn 0.4s ease both;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(22, 22, 22, 0.08);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -90,6 +216,7 @@
 @media (prefers-reduced-motion: reduce) {
   .card {
     animation: none;
+    transition: none;
   }
 }
 
@@ -110,70 +237,80 @@
   pointer-events: none;
 }
 
-.placeholder {
+/* Vertical reels: show the whole frame rather than cropping it to the card. */
+.contain {
+  object-fit: contain;
+}
+
+.dark {
+  background: #161616;
+}
+
+.backdrop {
+  object-fit: cover;
+  filter: blur(18px) brightness(0.9);
+  transform: scale(1.15);
+}
+
+/* Third-party player (LinkedIn) filling the media frame. */
+.embed {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 500;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--surface),
-    var(--surface) 12px,
-    #e9dec9 12px,
-    #e9dec9 24px
-  );
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .body {
-  padding: 22px 24px 26px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 22px 22px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .labelRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
+}
+
+.logo {
+  flex-shrink: 0;
+  border-radius: 6px;
 }
 
 .label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--foreground);
-}
-
-.readMore {
-  flex-shrink: 0;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background: var(--orange);
-  color: #fff;
-  font: inherit;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.readMore:hover {
-  background: var(--orange-dark);
-}
-
-.readMore:focus-visible {
-  outline: 2px solid var(--orange);
-  outline-offset: 2px;
+  color: var(--accent);
 }
 
 .title {
-  margin-top: 16px;
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
@@ -182,23 +319,424 @@
 
 .description,
 .highlights {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #6f6a64;
 }
 
-.description {
-  margin-top: 12px;
-}
-
 .highlights {
-  margin-top: 8px;
-  padding-left: 20px;
+  margin-top: 6px;
+  padding-left: 18px;
 }
 
-/* Collapsed cards show the first few lines; "Read more" reveals the rest. */
-.clamped {
-  max-height: calc(0.98rem * 1.6 * 3 + 12px);
+.extraImage {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  margin-top: 4px;
+  border-radius: 12px;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  background: var(--surface);
+  animation: fadeIn 0.3s ease both;
+}
+
+/* Labelled write-up sections inside the detail window */
+.writeup {
+  margin-top: 16px;
+}
+
+.writeupHeading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.writeup .description {
+  margin-top: 6px;
+}
+
+.writeup .highlights {
+  margin-top: 6px;
+}
+
+/* "How it works": numbered steps joined by a thin line */
+.steps {
+  margin-top: 8px;
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 6px;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 30px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #6f6a64;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Cards show a three-line summary; the full story opens in the detail window. */
+.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+@media (max-width: 900px) {
+  .section {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .arrowPrev {
+    left: 6px;
+  }
+
+  .arrowNext {
+    right: 6px;
+  }
+}
+
+/* ---------- Click-to-open ---------- */
+
+/* The title button is stretched over the whole card so any click opens the detail window. */
+.cardOpen {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cardOpen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.cardOpen:focus-visible {
+  outline: none;
+}
+
+.cardOpen:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Detail window ---------- */
+
+.dialog {
+  width: min(820px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--foreground);
+  box-shadow: 0 24px 80px rgba(22, 22, 22, 0.3);
+  overflow: auto;
+  overscroll-behavior: contain;
+  cursor: auto;
+}
+
+.dialog[open] {
+  animation: dialogIn 0.22s ease both;
+}
+
+.dialog::backdrop {
+  background: rgba(22, 22, 22, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dialogPanel {
+  position: relative;
+}
+
+/* Close button stays in the top-right corner while the window scrolls. */
+.dialogClose {
+  position: sticky;
+  top: 12px;
+  z-index: 3;
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 12px 12px -52px 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(22, 22, 22, 0.15);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.dialogClose:hover {
+  background: #fff;
+}
+
+.dialogClose:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.dialogClose svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.mediaLarge {
+  aspect-ratio: 16 / 9;
+}
+
+.dialogBody {
+  padding: 28px 36px 36px;
+}
+
+.dialogTitle {
+  margin-top: 10px;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.dialogText {
+  margin-top: 12px;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.dialogBody .highlights,
+.dialogBody .steps li {
+  font-size: 0.98rem;
+}
+
+.dialogBody .writeup {
+  margin-top: 22px;
+}
+
+.dialogBody .writeup .dialogText {
+  margin-top: 6px;
+}
+
+.extraGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  align-items: start;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+@media (max-width: 640px) {
+  .dialog {
+    width: calc(100% - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 16px;
+  }
+
+  .dialogBody {
+    padding: 22px 20px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+}
+
+/* ---------- Technical skills: under the carousel, above Awards ---------- */
+
+.skills {
+  margin-top: 56px;
+}
+
+.skillList {
+  margin-top: 16px;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.skillGroup {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* skills run inline, separated by a small brown dot */
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2px;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--foreground);
+}
+
+.skillItems li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* the dot follows each skill, so a wrapped line never starts with one */
+.skillItems li:not(:last-child)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Awards: one list under the carousel, grouped by area ---------- */
+
+.awards {
+  margin-top: 56px;
+}
+
+/* same size and weight as the Portfolio heading */
+.awardsHeading {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.awardList {
+  margin-top: 16px;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.awardGroup {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* the Let's Connect hairline follows straight after, so the last group needs no rule of its own */
+.awardGroup:last-child {
+  border-bottom: none;
+}
+
+.awardGroupHeading {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.awardLogos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.awardLogo {
+  width: auto;
+  height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.awardItems {
+  display: grid;
+  /* keep the items packed at the top even when the logos beside them are taller */
+  align-content: start;
+  gap: 4px;
+  padding-left: 18px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--body);
+}
+
+.awardTitle {
+  display: block;
+  color: var(--foreground);
+}
+
+.awardDetail {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .skillGroup {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+
+  .awardGroup {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .awardLogo {
+    height: 36px;
+  }
 }
