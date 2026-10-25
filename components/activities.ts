@@ -176,7 +176,7 @@ export const activities: Activity[] = [
         heading: "Real-world outcomes",
         list: [
           "About 94% stress-classification accuracy on wrist-sensor data, tested on a public dataset of 80 participants. That does not yet prove the same accuracy on a phone camera, so I am training the quality gate on more diverse datasets.",
-          "Submitted to IEEE: “Towards a quality-gated system for stress recovery with adaptive music.”",
+          "Submitted to IEEE.",
         ],
       },
     ],
