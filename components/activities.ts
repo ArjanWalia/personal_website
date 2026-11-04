@@ -320,7 +320,7 @@ export const activities: Activity[] = [
       },
     ],
     description:
-      "Piano has given me some unforgettable moments, from a winning solo performance at Carnegie Hall for The Royal Foundation to recognition at the International Youth Music, Berlin Grand Prize Virtuoso, San Francisco International Innovative, Special Venue Music at Stanford University, and Global Genius Music competitions, and I'm grateful to every teacher and audience who made them possible.",
+      "Piano has given me some unforgettable moments, from a winning solo performance at Carnegie Hall for The Royal Foundation to winning at the International Youth Music, Berlin Grand Prize Virtuoso, San Francisco International Innovative, Special Venue Music at Stanford University, and Global Genius Music competitions.\n\nI’m grateful to every teacher and audience who made them possible.",
   },
   {
     name: "Tennis",
