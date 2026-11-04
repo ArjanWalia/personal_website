@@ -358,6 +358,6 @@ export const activities: Activity[] = [
     // Landing page of disablethedifference.com
     image: "/photos/disable-the-difference.jpg",
     description:
-      "I serve as a buddy for neurodiverse kids with Disable the Difference, a nonprofit that runs free programs and friendship for youth with intellectual and developmental disabilities.",
+      "I serve as a buddy teaching English or history to neurodiverse children with Disable the Difference, a nonprofit that runs free programs and friendship for youth with intellectual and developmental disabilities.",
   },
 ];
