@@ -610,9 +610,11 @@
 
 .skillGroup {
   display: grid;
-  /* a fixed heading column, just wide enough for the longest heading */
+  /* same column and gap as the awards, plus the awards list's 18px indent,
+     so skills start exactly where award names do */
   grid-template-columns: 224px minmax(0, 1fr);
-  gap: 32px;
+  column-gap: calc(56px + 18px);
+  row-gap: 10px;
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
