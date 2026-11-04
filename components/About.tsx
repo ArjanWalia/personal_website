@@ -18,7 +18,7 @@ export default function About() {
             I build technology for underserved athletes, neurodivergent and
             physically impaired musicians, and students struggling with mental
             health. I do this by combining my passions for computer science,
-            digital signal processing, and electrical engineering.
+            digital signal processing, and engineering.
           </p>
           <p className={styles.closing}>
             Through my volunteering, research, and projects, I continue to explore
