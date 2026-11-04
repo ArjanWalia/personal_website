@@ -155,7 +155,10 @@ export default function Extracurriculars() {
                 <ul className={styles.awardItems}>
                   {group.awards.map((award) => (
                     <li key={award.title}>
-                      <span className={styles.awardTitle}>{award.title}</span>
+                      <span className={styles.awardTitle}>
+                        {award.italicLead && <><em>{award.italicLead}</em>{" "}</>}
+                        {award.title}
+                      </span>
                       {award.detail && <span className={styles.awardDetail}>{award.detail}</span>}
                     </li>
                   ))}

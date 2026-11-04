@@ -3,7 +3,8 @@ export type AwardGroup = {
   heading: string;
   /** Square-ish or wide logos under /public/photos/awards, cropped from the old award tiles. */
   logos: { src: string; alt: string; width: number; height: number }[];
-  awards: { title: string; detail?: string }[];
+  /** `italicLead` is shown in italics just before the title. */
+  awards: { title: string; detail?: string; italicLead?: string }[];
 };
 
 export const awardGroups: AwardGroup[] = [
@@ -78,8 +79,9 @@ export const awardGroups: AwardGroup[] = [
     logos: [{ src: "/photos/awards/patent.svg", alt: "Patent application", width: 120, height: 120 }],
     awards: [
       {
+        italicLead: "Pending",
         title:
-          "Pending U.S. Patent Application No. 19/858,559 · Quality-Gated Physiological Feedback and Adaptive Music Intervention · November 2026",
+          "U.S. Patent Application No. 19/858,559 · Quality-Gated Physiological Feedback and Adaptive Music Intervention · November 2026",
       },
     ],
   },
