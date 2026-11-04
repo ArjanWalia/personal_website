@@ -11,7 +11,7 @@ export default function About() {
         <div className={styles.body}>
           <p>
             My mission is to build and scale technology-based solutions that adapt
-            to humans, and I work at the intersection of music, technology, and
+            to humans. I work at the intersection of music, technology, and
             accessibility.
           </p>
           <p>
