@@ -610,7 +610,8 @@
 
 .skillGroup {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  /* a fixed heading column, just wide enough for the longest heading */
+  grid-template-columns: 224px minmax(0, 1fr);
   gap: 32px;
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
