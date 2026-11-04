@@ -20,6 +20,8 @@ export type Activity = {
   description: string;
   /** Optional bullet list shown under the description. */
   highlights?: string[];
+  /** A closing line shown after the highlights in the detail window. */
+  footnote?: string;
   /** Labelled write-up sections (e.g. "What I learned"), shown when the card is expanded. */
   sections?: { heading: string; text?: string; list?: string[]; steps?: string[] }[];
   /** Path under /public. Omit to show a placeholder until the photo is added. */
@@ -336,6 +338,7 @@ export const activities: Activity[] = [
     ],
     description:
       "I was named MVP of my junior varsity team after an unbeaten season, leading the team to its first undefeated season in 10 years. I then played #6 on my high school's varsity team, which won:",
+    footnote: "I’m grateful to my coaches and teammates for every match we shared.",
     highlights: [
       "EBAL Champions: 2024, 2025",
       "NCS Champions: 2024, 2025",

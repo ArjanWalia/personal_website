@@ -308,6 +308,7 @@ function ActivityCard({ activity, index }: { activity: Activity; index: number }
                   ))}
                 </ul>
               )}
+              {activity.footnote && <p className={styles.dialogText}>{activity.footnote}</p>}
               {activity.sections?.map((section) => (
                 <div key={section.heading} className={styles.writeup}>
                   <h4 className={styles.writeupHeading}>{section.heading}</h4>
