@@ -37,7 +37,7 @@ export const awardGroups: AwardGroup[] = [
     ],
     awards: [
       {
-        title: "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning”",
+        title: "IEEE publication: “Lightweight Underwater Acoustic Classification of Vessel Propulsion Sources”",
       },
       {
         title: "IEEE publication: “Toward a Quality-Gated Smartphone System for Stress-Aware Music Intervention”",
