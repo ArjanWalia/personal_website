@@ -335,7 +335,7 @@ export const activities: Activity[] = [
       { src: "/photos/tennis-team.jpg", alt: "Cal High boys tennis team photo on the court", aspect: "1600 / 1066" },
     ],
     description:
-      "I was named MVP of my junior varsity team, then played #6 on my high school's varsity team, which won:",
+      "I was named MVP of my junior varsity team after an unbeaten season, leading the team to its first undefeated season in 10 years. I then played #6 on my high school's varsity team, which won:",
     highlights: [
       "EBAL Champions: 2024, 2025",
       "NCS Champions: 2024, 2025",
