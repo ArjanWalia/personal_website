@@ -143,6 +143,8 @@ export const activities: Activity[] = [
         heading: "Real-world outcomes",
         list: [
           "Accepted for publication at IEEE SoutheastCon 2027.",
+          "92% test accuracy classifying five vessel motors (four outboard combustion motors and one electric) from underwater audio.",
+          "A 1 KB logistic regression model matched a 3.2 MB neural network, about 3,000 times smaller and suited to low-power ocean sensors.",
         ],
       },
     ],
@@ -151,7 +153,7 @@ export const activities: Activity[] = [
     name: "Stress management system",
     filter: "Research",
     label: "Digital Signal Processing Research",
-    title: "Lightweight ML Phone System for Stress Management",
+    title: "Toward a Quality-Gated Smartphone System for Stress-Aware Music Intervention",
     // Landing page of IEEE SoutheastCon (ieeesoutheastcon.org)
     image: "/photos/ieee-southeastcon.jpg",
     description:
@@ -174,6 +176,9 @@ export const activities: Activity[] = [
         heading: "Real-world outcomes",
         list: [
           "Accepted for publication at IEEE SoutheastCon 2027.",
+          "94% accuracy telling calm from stressed states using heart signals a phone camera can capture.",
+          "Heart rate from smartphone-camera video within 6.5 BPM on average, with a quality gate that screens out unusable recordings at 78% accuracy.",
+          "Self-selected music improved stress recovery by 1.05 points over an active radio control, with the largest benefit in nervousness.",
         ],
       },
     ],
