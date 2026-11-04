@@ -20,7 +20,7 @@ export const awardGroups: AwardGroup[] = [
       { title: "First place in piano, Special Venue Music at Stanford University · May 2026" },
       { title: "First place in piano, Berlin Grand Prize Virtuoso · February 2026" },
       { title: "Second place in piano, International Youth Music · January 2026" },
-      { title: "Performed winning solo on piano at Carnegie Hall with the Royal Foundation · October 2025" },
+      { title: "Winning solo performance on piano at Carnegie Hall · October 2025" },
       { title: "Gold and silver prizes in classical piano, Global Genius Music · April 2025" },
       { title: "Second place in advanced piano and romantic piano, San Francisco International Innovative · March 2025" },
       { title: "Second place in piano, Music through the Centuries International Competition · February 2024" },
