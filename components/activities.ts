@@ -337,10 +337,9 @@ export const activities: Activity[] = [
     description:
       "I was named MVP of my junior varsity team, then played #6 on my high school's varsity team, which won:",
     highlights: [
-      "EBAL Champions: 2023, 2024, 2025",
+      "EBAL Champions: 2024, 2025",
       "NCS Champions: 2024, 2025",
       "CIF NorCal Champions: 2024, 2025",
-      "CIF State Champions: 2024",
     ],
   },
   {
