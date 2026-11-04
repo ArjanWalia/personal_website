@@ -142,9 +142,7 @@ export const activities: Activity[] = [
       {
         heading: "Real-world outcomes",
         list: [
-          "Published at IEEE SoutheastCon 2027.",
-          "89–95% test accuracy on a merged dataset of about 18,000 one-second hydrophone clips.",
-          "Identified the CNN, preprocessing and optimizer combination that makes the most of limited computing resources.",
+          "Accepted for publication at IEEE SoutheastCon 2027.",
         ],
       },
     ],
@@ -175,8 +173,7 @@ export const activities: Activity[] = [
       {
         heading: "Real-world outcomes",
         list: [
-          "About 94% stress-classification accuracy on wrist-sensor data, tested on a public dataset of 80 participants. That does not yet prove the same accuracy on a phone camera, so I am training the quality gate on more diverse datasets.",
-          "Submitted to IEEE.",
+          "Accepted for publication at IEEE SoutheastCon 2027.",
         ],
       },
     ],
