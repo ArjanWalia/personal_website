@@ -669,7 +669,7 @@
   /* logos stack in one fixed-width column (wide enough for the Carnegie Hall logo),
      so every group's bullets start at the same line */
   grid-template-columns: 224px minmax(0, 1fr);
-  gap: 32px;
+  gap: 56px;
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
