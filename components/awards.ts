@@ -69,4 +69,15 @@ export const awardGroups: AwardGroup[] = [
       { title: "Certificate of Academic Achievement · 2025–26" },
     ],
   },
+  {
+    heading: "Patents",
+    // Simple drawn icon of a document with a seal
+    logos: [{ src: "/photos/awards/patent.svg", alt: "Patent application", width: 120, height: 120 }],
+    awards: [
+      {
+        title:
+          "Pending U.S. Patent Application No. 19/858,559 · Quality-Gated Physiological Feedback and Adaptive Music Intervention · November 2026",
+      },
+    ],
+  },
 ];
