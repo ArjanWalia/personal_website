@@ -17,7 +17,7 @@ export const awardGroups: AwardGroup[] = [
       { src: "/photos/awards/special-venue.jpg", alt: "Special Venue Music Awards", width: 280, height: 120 },
     ],
     awards: [
-      { title: "Carnegie Hall Winner's Concert with the Royal Foundation · October 2025" },
+      { title: "Performed winning solo on piano at Carnegie Hall with the Royal Foundation · October 2025" },
       { title: "Stanford University · May 2026" },
       { title: "Berlin Grand Prize Virtuoso · February 2026" },
       { title: "Global Genius Music · April 2025" },
