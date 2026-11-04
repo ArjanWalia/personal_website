@@ -272,19 +272,6 @@ export const activities: Activity[] = [
     highlights: ["AP Calculus", "AP Computer Science", "AP Physics", "Engineering"],
   },
   {
-    name: "UC Berkeley Fundamentals of Engineering",
-    filter: "Academics & Enrichment",
-    label: "Summer Program",
-    title: "UC Berkeley Fundamentals of Engineering Program",
-    image: "/photos/berkeley-engineering.jpg",
-    imagePosition: "50% 70%",
-    extraImages: [
-      { src: "/photos/berkeley-lab.jpg", alt: "Students gathered around lab equipment at UC Berkeley" },
-    ],
-    description:
-      "I simulated bridge construction in MATLAB and studied thermodynamics through the design of a Stirling engine.",
-  },
-  {
     name: "UC San Diego COSMOS",
     filter: "Academics & Enrichment",
     label: "Summer Program",
@@ -300,6 +287,19 @@ export const activities: Activity[] = [
     ],
     description:
       "I studied digital signal processing, Fourier analysis, and sound transformation using graphical programming and embedded systems.",
+  },
+  {
+    name: "UC Berkeley Fundamentals of Engineering",
+    filter: "Academics & Enrichment",
+    label: "Summer Program",
+    title: "UC Berkeley Fundamentals of Engineering Program",
+    image: "/photos/berkeley-engineering.jpg",
+    imagePosition: "50% 70%",
+    extraImages: [
+      { src: "/photos/berkeley-lab.jpg", alt: "Students gathered around lab equipment at UC Berkeley" },
+    ],
+    description:
+      "I simulated bridge construction in MATLAB and studied thermodynamics through the design of a Stirling engine.",
   },
   {
     name: "Piano",
