@@ -176,7 +176,7 @@ export const activities: Activity[] = [
         heading: "Real-world outcomes",
         list: [
           "Accepted for publication at IEEE SoutheastCon 2027.",
-          "94% accuracy telling calm from stressed states using heart signals a phone camera can capture.",
+          "94% accuracy telling calm from stressed states on wrist-sensor data, using heart signals a phone camera can capture.",
           "Heart rate from smartphone-camera video within 6.5 BPM on average, with a quality gate that screens out unusable recordings at 78% accuracy.",
           "Self-selected music improved stress recovery by 1.05 points over an active radio control, with the largest benefit in nervousness.",
         ],
