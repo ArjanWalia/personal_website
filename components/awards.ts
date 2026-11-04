@@ -39,6 +39,9 @@ export const awardGroups: AwardGroup[] = [
         title: "IEEE publication: “Underwater vessels acoustic classification with machine learning and deep learning”",
       },
       {
+        title: "IEEE publication: “Toward a Quality-Gated Smartphone System for Stress-Aware Music Intervention”",
+      },
+      {
         title: "First Prize, Voice Cursor Hackathon · June 2026",
         detail: "For Agent-Secure, a security framework that screens an AI agent's file and shell actions before they run.",
       },
