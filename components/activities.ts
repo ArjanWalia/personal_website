@@ -1,5 +1,4 @@
 export const filters = [
-  "All",
   "Projects",
   "Research",
   "Internships",
@@ -7,6 +6,7 @@ export const filters = [
   "Music",
   "Sports",
   "Volunteering",
+  "All",
 ] as const;
 
 export type Filter = (typeof filters)[number];
