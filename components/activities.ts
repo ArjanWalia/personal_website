@@ -132,8 +132,9 @@ export const activities: Activity[] = [
     filter: "Research",
     label: "Digital Signal Processing Research",
     title: "Lightweight Underwater Acoustic Classification of Vessel Propulsion Sources",
-    // Landing page of IEEE SoutheastCon (ieeesoutheastcon.org)
-    image: "/photos/ieee-southeastcon.jpg",
+    // Fig. 1 of the paper: one second of audio from each of the five motors
+    image: "/photos/underwater-waveforms.png",
+    imageFit: "contain",
     description:
       "I evaluated machine learning models, parameters, and digital signal processing techniques to improve how accurately vessel motors can be identified from their audio signatures.",
     sections: [
