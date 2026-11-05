@@ -48,13 +48,11 @@
   gap: 60px;
 }
 
-/* compact all-caps labels, spaced apart so each reads as its own item */
+/* plain labels in the body font, spaced apart so each reads as its own item */
 .link {
-  font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
   white-space: nowrap;
   color: var(--muted);
   transition: color 0.15s ease;
