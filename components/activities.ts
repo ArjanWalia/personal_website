@@ -157,8 +157,9 @@ export const activities: Activity[] = [
     filter: "Research",
     label: "Digital Signal Processing Research",
     title: "Toward a Quality-Gated Smartphone System for Stress-Aware Music Intervention",
-    // Landing page of IEEE SoutheastCon (ieeesoutheastcon.org)
-    image: "/photos/ieee-southeastcon.jpg",
+    // The two method flows from the URTC poster (biometric extraction, then stress classification)
+    image: "/photos/stress-flows.png",
+    imageFit: "contain",
     description:
       "I proposed a system that pairs a PPG sensor with a lightweight stress-classifying ML model on a phone, responding with musical intervention to make stress management more efficient and accessible.",
     sections: [
