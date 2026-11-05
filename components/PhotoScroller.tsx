@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Photo } from "./photos";
+import { useLang } from "./i18n";
 import styles from "./Header.module.css";
 
 const AUTO_SCROLL_MS = 4000;
@@ -12,6 +13,7 @@ const COPIES = 3;
 export default function PhotoScroller({ photos: allPhotos }: { photos: Photo[] }) {
   // Only real photos belong in the scroller; anything without a src is skipped.
   const photos = allPhotos.filter((p): p is Photo & { src: string } => Boolean(p.src));
+  const { t } = useLang();
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 
@@ -88,7 +90,7 @@ export default function PhotoScroller({ photos: allPhotos }: { photos: Photo[] }
         type="button"
         className={`${styles.arrow} ${styles.arrowLeft}`}
         onClick={() => scrollByCard(-1)}
-        aria-label="Previous photo"
+        aria-label={t("Previous photo", "Foto anterior")}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15 5l-7 7 7 7" />
@@ -119,7 +121,7 @@ export default function PhotoScroller({ photos: allPhotos }: { photos: Photo[] }
         type="button"
         className={`${styles.arrow} ${styles.arrowRight}`}
         onClick={() => scrollByCard(1)}
-        aria-label="Next photo"
+        aria-label={t("Next photo", "Foto siguiente")}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M9 5l7 7-7 7" />
