@@ -22,15 +22,6 @@
   background: var(--line);
 }
 
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .body p {
   max-width: 68ch;
   font-size: 1.05rem;

@@ -51,7 +51,6 @@ export default function Extracurriculars() {
   return (
     <section id="extracurriculars" className={styles.section}>
       <div className={styles.inner}>
-        <p className={styles.eyebrow}>My Work</p>
         <h2 className={styles.heading}>Portfolio</h2>
 
         <div className={styles.filters} role="group" aria-label="Filter portfolio">

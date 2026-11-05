@@ -18,17 +18,7 @@
   background: var(--line);
 }
 
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .heading {
-  margin-top: 10px;
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.04em;

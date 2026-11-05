@@ -4,10 +4,6 @@ export default function About() {
   return (
     <section id="about" className={styles.section}>
       <div className={styles.inner}>
-        <div>
-          <p className={styles.eyebrow}>About Me</p>
-        </div>
-
         <div className={styles.body}>
           <p>
             My mission is to build and scale technology-based solutions that adapt
