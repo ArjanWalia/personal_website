@@ -68,9 +68,92 @@
   border-radius: 4px;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.lang {
+  position: relative;
+}
+
+.langButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.langButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.langButton svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.langMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 150px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.langOption {
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.langOption:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.langOption[aria-checked="true"] {
+  font-weight: 600;
+  color: var(--accent);
+}
+
 @media (max-width: 640px) {
   .links {
-    gap: 20px;
+    gap: 14px;
+  }
+
+  .right {
+    gap: 10px;
+  }
+
+  .langButton {
+    padding: 4px;
+    font-size: 0.7rem;
   }
 
   .link {

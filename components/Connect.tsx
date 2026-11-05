@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import type React from "react";
+import { useLang } from "./i18n";
 import styles from "./Connect.module.css";
 
 const EMAIL = "waliaarjan96@gmail.com";
@@ -44,56 +47,10 @@ const storyPhotos: StoryPhoto[] = [
   { src: "/photos/story/4510.jpg", alt: "Winners' concert on stage at Carnegie Hall", x: 57, y: 182.8, w: 43, r: -4, z: 23 },
 ];
 
-const asks = [
-  {
-    title: "Speaking",
-    description: "Talks on music, accessibility technology, or student mental health.",
-  },
-  {
-    title: "Mentorship",
-    description: "Helping students exploring coding, signal processing, or music tech.",
-  },
-  {
-    title: "Research",
-    description: "Collaborating on accessibility, AI security, or audio and signal processing.",
-  },
-];
-
-export default function Connect() {
-  return (
-    <section id="connect" className={styles.section}>
-      <div className={styles.inner}>
-        <h2 className={styles.heading}>Let&rsquo;s Connect</h2>
-
-        <div className={styles.contact}>
-          <h3 className={styles.subheading}>Get in touch</h3>
-          <div className={styles.ask}>
-            {/* Heading: "Email me" is the link; the rest of the line is plain heading text */}
-            <p className={styles.askTitle}>
-              <a
-                className={styles.askLink}
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent("Speaking, mentorship or research")}`}
-              >
-                Email me
-              </a>{" "}
-              for speaking, mentorship or research opportunities
-            </p>
-            <ul className={styles.askList}>
-              {asks.map((ask) => (
-                <li key={ask.title}>
-                  <strong>{ask.title}:</strong> {ask.description}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className={styles.storyRow}>
-          <div className={styles.story}>
-            <h3 className={styles.subheading}>My story</h3>
-            {/* Arjan's own words, combined with his first NCWIT essay (his journey with technology). */}
-            <div className={styles.storyText}>
-              <p>
+// My story, in Arjan's own words (combined with his first NCWIT essay), and its Spanish translation.
+const storyEn = (
+  <>
+<p>
                 Growing up, beyond years of rigorous training in piano, my grandmother&rsquo;s
                 (Dadi&rsquo;s) philosophy of &ldquo;<em>Seva</em>&rdquo; (selfless service) has
                 shaped my identity. A lifelong teacher, she tutors under-privileged children and
@@ -135,9 +92,114 @@ export default function Connect() {
                 I aspire to solve the same barrier Dadi is solving with books:{" "}
                 <span className={styles.storyKey}>access.</span>
               </p>
-            </div>
-          </div>
+  </>
+);
 
+const storyEs = (
+  <>
+    <p>
+      Al crecer, además de años de formación rigurosa en piano, la filosofía de mi abuela
+      (Dadi) de &ldquo;<em>Seva</em>&rdquo; (servicio desinteresado) ha moldeado mi identidad.
+      Maestra de toda la vida, ella da clases a niños de bajos recursos y paga su matrícula.
+    </p>
+    <p>
+      Como pianista apasionado, siempre he valorado mi acceso a la autoexpresión. Sin embargo, ver
+      a otros enfrentar limitaciones de accesibilidad me hizo preguntarme qué pasa cuando las
+      personas no pueden dedicarse a lo que aman. La filosofía de Dadi, &ldquo;el éxito se mide por
+      lo que das, no por lo que acumulas&rdquo;, se volvió central en mis decisiones de diseño para
+      poblaciones vulnerables que enfrentan barreras de accesibilidad, y siempre me inspira a seguir
+      creando para la accesibilidad.
+    </p>
+    <p>
+      En la escuela secundaria, empecé a explorar la tecnología para responder esta pregunta.
+      Aprendí que las barreras de accesibilidad provienen del costo, la capacidad física o la salud
+      mental. Mi camino comenzó cuando programé un analizador biomecánico de tenis con Node.js y
+      React para que el entrenamiento privado fuera asequible. Pero pronto me di cuenta de que el
+      costo no es el único obstáculo, así que creé soluciones para el bienestar de la salud mental y
+      para ayudar a pianistas con discapacidades físicas, usando Python, Supabase y Pandas.
+    </p>
+    <p>
+      Para profundizar, avancé en la investigación de procesamiento de audio en el selectivo
+      programa COSMOS de UC San Diego y mediante publicaciones del IEEE. Estas experiencias me
+      permitieron abordar desafíos más complejos. Diseñé un escenario en línea sensorialmente seguro
+      con monitores de IA para músicos marginados, y desarrollé un marco de seguridad para LLM que
+      evita actividad maliciosa de agentes de IA, el cual también ganó un hackathon. Tres pasantías
+      me han dado experiencia en ciberseguridad y arquitectura para crear soluciones modernas y
+      seguras.
+    </p>
+    <p>
+      Sigo poniendo en práctica el Seva como voluntario de musicoterapia para personas con síndrome
+      de Down y como voluntario docente para niños neurodivergentes.
+    </p>
+    <p className={styles.storyClosing}>
+      Aspiro a resolver la misma barrera que Dadi resuelve con libros:{" "}
+      <span className={styles.storyKey}>el acceso.</span>
+    </p>
+  </>
+);
+
+export default function Connect() {
+  const { t } = useLang();
+  const asks = [
+    {
+      title: t("Speaking", "Charlas"),
+      description: t(
+        "Talks on music, accessibility technology, or student mental health.",
+        "Charlas sobre música, tecnología accesible o salud mental estudiantil.",
+      ),
+    },
+    {
+      title: t("Mentorship", "Mentoría"),
+      description: t(
+        "Helping students exploring coding, signal processing, or music tech.",
+        "Apoyo a estudiantes que exploran la programación, el procesamiento de señales o la tecnología musical.",
+      ),
+    },
+    {
+      title: t("Research", "Investigación"),
+      description: t(
+        "Collaborating on accessibility, AI security, or audio and signal processing.",
+        "Colaboración en accesibilidad, seguridad de IA o procesamiento de audio y señales.",
+      ),
+    },
+  ];
+  return (
+    <section id="connect" className={styles.section}>
+      <div className={styles.inner}>
+        <h2 className={styles.heading}>{t("Let’s Connect", "Conectemos")}</h2>
+
+        <div className={styles.contact}>
+          <h3 className={styles.subheading}>{t("Get in touch", "Contacto")}</h3>
+          <div className={styles.ask}>
+            {/* Heading: "Email me" is the link; the rest of the line is plain heading text */}
+            <p className={styles.askTitle}>
+              <a
+                className={styles.askLink}
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent(t("Speaking, mentorship or research", "Charlas, mentoría o investigación"))}`}
+              >
+                {t("Email me", "Escríbeme")}
+              </a>{" "}
+              {t(
+                "for speaking, mentorship or research opportunities",
+                "para oportunidades de charlas, mentoría o investigación",
+              )}
+            </p>
+            <ul className={styles.askList}>
+              {asks.map((ask) => (
+                <li key={ask.title}>
+                  <strong>{ask.title}:</strong> {ask.description}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className={styles.storyRow}>
+          <div className={styles.story}>
+            <h3 className={styles.subheading}>{t("My story", "Mi historia")}</h3>
+            {/* Arjan's own words, combined with his first NCWIT essay (his journey with technology). */}
+            <div className={styles.storyText}>{t(storyEn, storyEs)}</div>
+          </div>
           <figure className={styles.photo}>
             {storyPhotos.length > 0 ? (
               <div className={styles.collage} style={{ "--layout-h": LAYOUT_HEIGHT } as React.CSSProperties}>
@@ -167,7 +229,7 @@ export default function Connect() {
                 ))}
               </div>
             ) : (
-              <div className={styles.placeholder}>Photos coming soon</div>
+              <div className={styles.placeholder}>{t("Photos coming soon", "Fotos próximamente")}</div>
             )}
           </figure>
         </div>

@@ -1,11 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import PhotoScroller from "./PhotoScroller";
 import SocialLinks from "./SocialLinks";
 import Waveform from "./Waveform";
 import { profilePhoto, scrollerPhotos } from "./photos";
+import { useLang } from "./i18n";
 import styles from "./Header.module.css";
 
 export default function Header() {
+  const { t } = useLang();
   return (
     <header id="home" className={styles.header}>
       <div className={styles.scrollerWrap}>
@@ -29,28 +33,28 @@ export default function Header() {
               style={{ objectFit: "cover", objectPosition: profilePhoto.position }}
             />
           ) : (
-            <div className={styles.placeholder}>Photo coming soon</div>
+            <div className={styles.placeholder}>{t("Photo coming soon", "Foto próximamente")}</div>
           )}
         </div>
 
         <div className={styles.text}>
           <p className={styles.tagline}>
-            <span className={styles.phrase}>Building accessibility tech</span>{" "}
+            <span className={styles.phrase}>{t("Building accessibility tech", "Creando tecnología accesible")}</span>{" "}
             <span className={styles.bar} aria-hidden="true">
               |
             </span>{" "}
-            <span className={styles.phrase}>Competitive pianist</span>{" "}
+            <span className={styles.phrase}>{t("Competitive pianist", "Pianista competitivo")}</span>{" "}
             <span className={styles.bar} aria-hidden="true">
               |
             </span>{" "}
-            <span className={styles.phrase}>Tennis MVP</span>
+            <span className={styles.phrase}>{t("Tennis MVP", "MVP de tenis")}</span>
           </p>
           <p className={styles.meta}>
             <span>California High School</span>
             <span className={styles.dot} aria-hidden="true">
               ·
             </span>
-            <span>Class of 2028</span>
+            <span>{t("Class of 2028", "Promoción 2028")}</span>
             <span className={styles.dot} aria-hidden="true">
               ·
             </span>

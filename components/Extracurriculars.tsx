@@ -3,12 +3,15 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { activities, filters, type Activity, type Filter } from "./activities";
+import { activityTextEs, filterLabelsEs } from "./activities.es";
+import { useLang } from "./i18n";
 import { awardGroups } from "./awards";
 import { skillGroups } from "./skills";
 import CategoryIcon from "./CategoryIcon";
 import styles from "./Extracurriculars.module.css";
 
 export default function Extracurriculars() {
+  const { lang, t } = useLang();
   const [active, setActive] = useState<Filter>("All");
   const rowRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
@@ -46,14 +49,16 @@ export default function Extracurriculars() {
     return () => window.removeEventListener("resize", updatePosition);
   }, [active, updatePosition]);
 
-  const visible = active === "All" ? activities : activities.filter((a) => a.filter === active);
+  const filtered = active === "All" ? activities : activities.filter((a) => a.filter === active);
+  // In Spanish, each card keeps its media and layout but takes its text from activities.es.ts.
+  const visible = lang === "es" ? filtered.map((a) => ({ ...a, ...activityTextEs[a.name] })) : filtered;
 
   return (
     <section id="extracurriculars" className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>Portfolio</h2>
+        <h2 className={styles.heading}>{t("Portfolio", "Portafolio")}</h2>
 
-        <div className={styles.filters} role="group" aria-label="Filter portfolio">
+        <div className={styles.filters} role="group" aria-label={t("Filter portfolio", "Filtrar portafolio")}>
           {filters.map((filter) => (
             <button
               key={filter}
@@ -62,18 +67,18 @@ export default function Extracurriculars() {
               aria-pressed={filter === active}
               onClick={() => setActive(filter)}
             >
-              {filter}
+              {t(filter, filterLabelsEs[filter])}
             </button>
           ))}
         </div>
 
-        <div className={styles.carousel} role="region" aria-roledescription="carousel" aria-label="Portfolio">
+        <div className={styles.carousel} role="region" aria-roledescription="carousel" aria-label={t("Portfolio", "Portafolio")}>
           <button
             type="button"
             className={`${styles.arrow} ${styles.arrowPrev}`}
             onClick={() => goTo(Math.max(current - 1, 0))}
             disabled={atStart}
-            aria-label="Previous card"
+            aria-label={t("Previous card", "Tarjeta anterior")}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 5l-7 7 7 7" />
@@ -83,7 +88,7 @@ export default function Extracurriculars() {
           {/* Keyed by filter so the cards remount and fade in again on every switch. */}
           <div key={active} ref={rowRef} className={styles.grid} onScroll={updatePosition}>
             {visible.map((activity, i) => (
-              <ActivityCard key={activity.title} activity={activity} index={i} />
+              <ActivityCard key={activity.name} activity={activity} index={i} />
             ))}
           </div>
 
@@ -92,7 +97,7 @@ export default function Extracurriculars() {
             className={`${styles.arrow} ${styles.arrowNext}`}
             onClick={() => goTo(current + 1)}
             disabled={atEnd}
-            aria-label="Next card"
+            aria-label={t("Next card", "Tarjeta siguiente")}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 5l7 7-7 7" />
@@ -100,13 +105,13 @@ export default function Extracurriculars() {
           </button>
         </div>
 
-        <div className={styles.dots} role="group" aria-label="Choose a card">
+        <div className={styles.dots} role="group" aria-label={t("Choose a card", "Elegir una tarjeta")}>
           {visible.map((activity, i) => (
             <button
               key={activity.title}
               type="button"
               className={styles.dot}
-              aria-label={`Go to ${activity.name}`}
+              aria-label={t(`Go to ${activity.name}`, `Ir a ${activity.name}`)}
               aria-current={i === current ? "true" : undefined}
               onClick={() => goTo(i)}
             />
@@ -115,13 +120,13 @@ export default function Extracurriculars() {
 
         {/* Technical skills: one row per area, skills run inline with small brown dots between them. */}
         <div className={styles.skills}>
-          <h3 className={styles.awardsHeading}>Technical Skills</h3>
+          <h3 className={styles.awardsHeading}>{t("Technical Skills", "Habilidades técnicas")}</h3>
           <ul className={styles.skillList}>
             {skillGroups.map((group) => (
               <li key={group.heading} className={styles.skillGroup}>
-                <h4 className={styles.awardGroupHeading}>{group.heading}</h4>
+                <h4 className={styles.awardGroupHeading}>{t(group.heading, group.headingEs)}</h4>
                 <ul className={styles.skillItems}>
-                  {group.skills.map((skill) => (
+                  {t(group.skills, group.skillsEs ?? group.skills).map((skill) => (
                     <li key={skill}>{skill}</li>
                   ))}
                 </ul>
@@ -132,12 +137,12 @@ export default function Extracurriculars() {
 
         {/* Awards: one list, grouped by area, each group with its logos. */}
         <div className={styles.awards}>
-          <h3 className={styles.awardsHeading}>Awards</h3>
+          <h3 className={styles.awardsHeading}>{t("Awards", "Premios")}</h3>
           <ul className={styles.awardList}>
             {awardGroups.map((group) => (
               <li key={group.heading} className={styles.awardGroup}>
                 <div className={styles.awardSide}>
-                  <h4 className={styles.awardGroupHeading}>{group.heading}</h4>
+                  <h4 className={styles.awardGroupHeading}>{t(group.heading, group.headingEs)}</h4>
                   <div className={styles.awardLogos}>
                     {group.logos.map((logo) => (
                       <Image
@@ -155,10 +160,10 @@ export default function Extracurriculars() {
                   {group.awards.map((award) => (
                     <li key={award.title}>
                       <span className={styles.awardTitle}>
-                        {award.italicLead && <><em>{award.italicLead}</em>{" "}</>}
-                        {award.title}
+                        {award.italicLead && <><em>{t(award.italicLead, award.italicLeadEs)}</em>{" "}</>}
+                        {t(award.title, award.titleEs)}
                       </span>
-                      {award.detail && <span className={styles.awardDetail}>{award.detail}</span>}
+                      {award.detail && <span className={styles.awardDetail}>{t(award.detail, award.detailEs)}</span>}
                     </li>
                   ))}
                 </ul>
@@ -182,7 +187,7 @@ function CardMedia({ activity, large = false }: { activity: Activity; large?: bo
         <iframe
           className={styles.embed}
           src={activity.embed}
-          title={`${activity.name} post on LinkedIn`}
+          title={`${activity.name} · LinkedIn`}
           loading="lazy"
           allowFullScreen
         />
@@ -229,6 +234,7 @@ function CardMedia({ activity, large = false }: { activity: Activity; large?: bo
 }
 
 function ActivityCard({ activity, index }: { activity: Activity; index: number }) {
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const hasMedia = Boolean(activity.embed || activity.video || activity.image);
@@ -283,7 +289,7 @@ function ActivityCard({ activity, index }: { activity: Activity; index: number }
       >
         {open && (
           <div className={styles.dialogPanel}>
-            <button type="button" className={styles.dialogClose} onClick={close} aria-label="Close">
+            <button type="button" className={styles.dialogClose} onClick={close} aria-label={t("Close", "Cerrar")}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 6l12 12M18 6 6 18" />
               </svg>
