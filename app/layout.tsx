@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,10 +7,17 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// Monospace for small labels and metadata, like the readouts on audio gear.
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   title: "Arjan Walia",
   description:
-    "Competitive pianist providing accessibility to musicians and students internationally.",
+    "Building accessibility tech | Competitive pianist | Tennis MVP",
 };
 
 export default function RootLayout({
@@ -20,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.variable}>{children}</body>
+      <body className={`${inter.variable} ${plexMono.variable}`}>{children}</body>
     </html>
   );
 }
