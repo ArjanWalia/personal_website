@@ -266,6 +266,7 @@ export const activities: Activity[] = [
         list: [
           "Event and impact tracking in the Hey, Blue! mobile app (iOS and Android), letting residents discover local community events, track their personal neighborhood impact, and view community leaderboards.",
           "The points and rewards system, where residents earn points for each verified, positive interaction with an officer and redeem them in the Points Store for groceries, clothing, household goods, and branded items.",
+          "Worked in small agile groups to code new versions of the mobile platform.",
         ],
       },
     ],

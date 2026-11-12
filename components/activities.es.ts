@@ -189,6 +189,7 @@ export const activityTextEs: Record<string, Text> = {
         list: [
           "El seguimiento de eventos e impacto en la aplicación móvil de Hey, Blue! (iOS y Android), que permite a los residentes descubrir eventos comunitarios locales, seguir su impacto personal en el vecindario y ver las clasificaciones de la comunidad.",
           "El sistema de puntos y recompensas, en el que los residentes ganan puntos por cada interacción positiva y verificada con un policía y los canjean en la Points Store por alimentos, ropa, artículos para el hogar y productos de la marca.",
+          "Trabajé en pequeños grupos ágiles para programar nuevas versiones de la plataforma móvil.",
         ],
       },
     ],
