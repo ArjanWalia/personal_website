@@ -155,13 +155,6 @@ export default function Connect() {
         "Apoyo a estudiantes que exploran la programación, el procesamiento de señales o la tecnología musical.",
       ),
     },
-    {
-      title: t("Research", "Investigación"),
-      description: t(
-        "Collaborating on accessibility, AI security, or audio and signal processing.",
-        "Colaboración en accesibilidad, seguridad de IA o procesamiento de audio y señales.",
-      ),
-    },
   ];
   return (
     <section id="connect" className={styles.section}>
@@ -175,13 +168,13 @@ export default function Connect() {
             <p className={styles.askTitle}>
               <a
                 className={styles.askLink}
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent(t("Speaking, mentorship or research", "Charlas, mentoría o investigación"))}`}
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent(t("Speaking or mentorship", "Charlas o mentoría"))}`}
               >
                 {t("Email me", "Escríbeme")}
               </a>{" "}
               {t(
-                "for speaking, mentorship or research opportunities",
-                "para oportunidades de charlas, mentoría o investigación",
+                "for speaking or mentorship opportunities",
+                "para oportunidades de charlas o mentoría",
               )}
             </p>
             <ul className={styles.askList}>
