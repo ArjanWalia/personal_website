@@ -248,6 +248,16 @@ export const activities: Activity[] = [
     embed: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7515470442913202176?compact=1",
     description:
       "At Hinkal, a leading blockchain privacy and security startup, I designed and built interfaces that make secure transactions accessible across a wide range of chain networks.",
+    sections: [
+      {
+        heading: "What I did",
+        list: [
+          "Co-developed user-facing features for account creation and customer support queries using API integration and responsive UI design.",
+          "Presented diffusion models and U-Net architecture, including the technical framework and use cases, to the CEO and CTO.",
+          "Collaborated cross-functionally with senior engineers and product managers on security-focused full-stack development.",
+        ],
+      },
+    ],
   },
   {
     name: "Hey, Blue!",

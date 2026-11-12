@@ -177,6 +177,16 @@ export const activityTextEs: Record<string, Text> = {
     title: "Pasante de ingeniería de software en Hinkal",
     description:
       "En Hinkal, una startup líder en privacidad y seguridad blockchain, diseñé y desarrollé interfaces que hacen accesibles las transacciones seguras en una amplia variedad de redes.",
+    sections: [
+      {
+        heading: "Lo que hice",
+        list: [
+          "Codesarrollé funciones para usuarios de creación de cuentas y consultas de atención al cliente mediante integración de API y diseño de interfaz adaptable.",
+          "Presenté los modelos de difusión y la arquitectura U-Net, incluido su marco técnico y casos de uso, al director ejecutivo y al director de tecnología.",
+          "Colaboré de forma interfuncional con ingenieros sénior y gerentes de producto en el desarrollo full-stack centrado en la seguridad.",
+        ],
+      },
+    ],
   },
   "Hey, Blue!": {
     label: "Desarrollo de software",
