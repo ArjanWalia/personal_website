@@ -237,7 +237,7 @@ export const activities: Activity[] = [
     name: "Hinkal",
     filter: "Internships",
     label: "Software Development",
-    title: "UI/UX Developer Intern at Hinkal",
+    title: "Software Engineering Intern at Hinkal",
     // Hinkal's LinkedIn post, embedded with LinkedIn's own player (compact = video only)
     embed: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7515470442913202176?compact=1",
     description:

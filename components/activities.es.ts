@@ -174,7 +174,7 @@ export const activityTextEs: Record<string, Text> = {
   },
   Hinkal: {
     label: "Desarrollo de software",
-    title: "Pasante de desarrollo UI/UX en Hinkal",
+    title: "Pasante de ingeniería de software en Hinkal",
     description:
       "En Hinkal, una startup líder en privacidad y seguridad blockchain, diseñé y desarrollé interfaces que hacen accesibles las transacciones seguras en una amplia variedad de redes.",
   },
