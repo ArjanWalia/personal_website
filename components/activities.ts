@@ -103,7 +103,7 @@ export const activities: Activity[] = [
       {
         heading: "What I built",
         list: [
-          "A Python program that compares a recording against a reference MIDI score, then detects and labels note accuracy so mistakes can be found and corrected during practice.",
+          "A Python program that compares a recording against a reference MIDI score, classifies each mistake as a pitch, timing, or combined error, and automatically repairs it by shifting timing or replacing wrong notes, producing a corrected recording.",
           "Music information retrieval tools: PyPianoRoll for pitch alignment and note replacement, and pretty_midi for MIDI parsing and synthesis.",
           "NumPy and pandas to organize the note-level data.",
         ],
@@ -112,6 +112,7 @@ export const activities: Activity[] = [
         heading: "Real-world outcomes",
         list: [
           "3rd place at the Contra Costa Science & Engineering Fair (March 2026).",
+          "Corrected injected errors with over 80% accuracy in every category: 88.6% for timing errors, 84.7% for pitch errors, and 81.6% when both occur together.",
           "Helps pianists with limited dexterity practice and record independently.",
         ],
       },

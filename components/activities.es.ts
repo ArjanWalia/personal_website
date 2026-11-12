@@ -62,7 +62,7 @@ export const activityTextEs: Record<string, Text> = {
       {
         heading: "Lo que creé",
         list: [
-          "Un programa en Python que compara una grabación con una partitura MIDI de referencia y luego detecta y etiqueta la precisión de las notas para encontrar y corregir errores durante la práctica.",
+          "Un programa en Python que compara una grabación con una partitura MIDI de referencia, clasifica cada error como de tono, de tiempo o combinado, y lo repara automáticamente desplazando el tiempo o reemplazando las notas incorrectas, generando una grabación corregida.",
           "Herramientas de recuperación de información musical: PyPianoRoll para la alineación de tonos y el reemplazo de notas, y pretty_midi para el análisis y la síntesis MIDI.",
           "NumPy y pandas para organizar los datos a nivel de nota.",
         ],
@@ -71,6 +71,7 @@ export const activityTextEs: Record<string, Text> = {
         heading: "Resultados reales",
         list: [
           "Tercer lugar en la Feria de Ciencias e Ingeniería de Contra Costa (marzo de 2026).",
+          "Corrigió errores introducidos con más del 80 % de precisión en todas las categorías: 88,6 % en errores de tiempo, 84,7 % en errores de tono y 81,6 % cuando ambos ocurren a la vez.",
           "Ayuda a pianistas con destreza limitada a practicar y grabar de forma independiente.",
         ],
       },
