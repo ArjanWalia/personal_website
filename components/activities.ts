@@ -247,7 +247,7 @@ export const activities: Activity[] = [
     // Hinkal's LinkedIn post, embedded with LinkedIn's own player (compact = video only)
     embed: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7515470442913202176?compact=1",
     description:
-      "At Hinkal, a leading blockchain privacy and security startup, I designed and built interfaces that make secure transactions accessible across a wide range of chain networks.",
+      "Hinkal is a startup building a universal privacy and compliance protocol designed for on-chain asset payments, swaps, and settlements across public blockchains. There, I designed and built interfaces that make secure transactions accessible across a wide range of chain networks.",
     sections: [
       {
         heading: "What I did",
