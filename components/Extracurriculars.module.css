@@ -319,6 +319,13 @@
   padding-left: 18px;
 }
 
+/* Sub-bullets nested under a list item, e.g. quotes under a recommendation letter. */
+.subList {
+  margin-top: 2px;
+  padding-left: 20px;
+  list-style: circle;
+}
+
 .extraImage {
   position: relative;
   aspect-ratio: 3 / 4;

@@ -23,7 +23,13 @@ export type Activity = {
   /** A closing line shown after the highlights in the detail window. */
   footnote?: string;
   /** Labelled write-up sections (e.g. "What I learned"), shown when the card is expanded. */
-  sections?: { heading: string; text?: string; list?: string[]; steps?: string[] }[];
+  /** A list item can carry its own sub-bullets as `{ text, list }`. */
+  sections?: {
+    heading: string;
+    text?: string;
+    list?: (string | { text: string; list: string[] })[];
+    steps?: string[];
+  }[];
   /** Path under /public. Omit to show a placeholder until the photo is added. */
   image?: string;
   /** CSS object-position for cropping the image into the card, e.g. "50% 30%" to keep a face in frame. */
@@ -278,10 +284,14 @@ export const activities: Activity[] = [
       {
         heading: "Recognition",
         list: [
-          "Strong recommendation letter from Benny Esparra, CEO of Compass Lessons (October 2025).",
-          "Recognized for “uncommon resourcefulness and initiative” and a “self-reliant approach.”",
-          "Praised for “strategic thinking and technical execution” that “helped lay the digital foundation” for the firm.",
-          "Described as “a deeply grounded problem solver” with “maturity and ambition rarely seen in high school students.”",
+          {
+            text: "Strong recommendation letter from Benny Esparra, CEO of Compass Lessons (October 2025).",
+            list: [
+              "Recognized for “uncommon resourcefulness and initiative” and a “self-reliant approach.”",
+              "Praised for “strategic thinking and technical execution” that “helped lay the digital foundation” for the firm.",
+              "Described as “a deeply grounded problem solver” with “maturity and ambition rarely seen in high school students.”",
+            ],
+          },
         ],
       },
     ],

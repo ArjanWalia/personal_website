@@ -320,9 +320,20 @@ function ActivityCard({ activity, index }: { activity: Activity; index: number }
                   {section.text && <p className={styles.dialogText}>{section.text}</p>}
                   {section.list && (
                     <ul className={styles.highlights}>
-                      {section.list.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      {section.list.map((item) =>
+                        typeof item === "string" ? (
+                          <li key={item}>{item}</li>
+                        ) : (
+                          <li key={item.text}>
+                            {item.text}
+                            <ul className={styles.subList}>
+                              {item.list.map((sub) => (
+                                <li key={sub}>{sub}</li>
+                              ))}
+                            </ul>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   )}
                   {section.steps && (
