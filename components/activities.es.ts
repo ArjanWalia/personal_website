@@ -186,9 +186,28 @@ export const activityTextEs: Record<string, Text> = {
   },
   "Compass Lessons": {
     label: "Desarrollo de software",
-    title: "Pasante en Compass Lessons",
+    title: "Pasante de desarrollo UI/UX en Compass Lessons",
     description:
-      "Compass Lessons ayuda a empresas de salud a convertir desafíos complejos en estrategias prácticas y centradas en las personas que mejoran los resultados clínicos y económicos.",
+      "Compass Lessons ayuda a empresas de salud a convertir desafíos complejos en estrategias prácticas y centradas en las personas que mejoran los resultados clínicos y económicos. Durante dos meses, creé un prototipo de chatbot para el sitio web de la empresa que amplió su alcance a socios de tecnología médica y salud digital en todo el mundo.",
+    sections: [
+      {
+        heading: "Lo que creé",
+        list: [
+          "Desarrollé la arquitectura back-end de un chatbot para el sitio web de la empresa.",
+          "Implementé funciones clave del front-end y lancé el prototipo.",
+          "Convertí un modelo de negocio complejo en funciones UI/UX simplificadas para el equipo de pasantes de front-end.",
+        ],
+      },
+      {
+        heading: "Reconocimiento",
+        list: [
+          "Sólida carta de recomendación de Benny Esparra, director ejecutivo de Compass Lessons (octubre de 2025).",
+          "Reconocido por su “ingenio e iniciativa poco comunes” y su “enfoque autosuficiente”.",
+          "Elogiado por su “pensamiento estratégico y ejecución técnica”, que “ayudaron a sentar la base digital” de la empresa.",
+          "Descrito como “un solucionador de problemas con los pies en la tierra”, con una “madurez y ambición poco comunes en estudiantes de secundaria”.",
+        ],
+      },
+    ],
   },
   Academics: {
     label: "Académico",

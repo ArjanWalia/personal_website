@@ -259,12 +259,32 @@ export const activities: Activity[] = [
     name: "Compass Lessons",
     filter: "Internships",
     label: "Software Development",
-    title: "Intern at Compass Lessons",
+    title: "UI/UX Development Intern at Compass Lessons",
     // Slideshow of the three hero carousel slides on compasslessons.com
     video: "/videos/compass-lessons.mp4",
     videoFit: "contain",
     description:
-      "Compass Lessons helps healthcare companies turn complex challenges into actionable, human-centered strategies that improve both clinical and economic outcomes.",
+      "Compass Lessons helps healthcare companies turn complex challenges into actionable, human-centered strategies that improve both clinical and economic outcomes. Over two months, I built a chatbot prototype for the firm's website that expanded its outreach to medtech and digital health partners globally.",
+    // Drawn from the CEO's recommendation letter (October 2025)
+    sections: [
+      {
+        heading: "What I built",
+        list: [
+          "Developed the back-end architecture for a chatbot on the firm's website.",
+          "Implemented key front-end features and launched the prototype.",
+          "Turned a complex business model into simplified UI/UX features for the front-end intern team.",
+        ],
+      },
+      {
+        heading: "Recognition",
+        list: [
+          "Strong recommendation letter from Benny Esparra, CEO of Compass Lessons (October 2025).",
+          "Recognized for “uncommon resourcefulness and initiative” and a “self-reliant approach.”",
+          "Praised for “strategic thinking and technical execution” that “helped lay the digital foundation” for the firm.",
+          "Described as “a deeply grounded problem solver” with “maturity and ambition rarely seen in high school students.”",
+        ],
+      },
+    ],
   },
   {
     name: "Academics",
