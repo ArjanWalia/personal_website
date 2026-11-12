@@ -264,9 +264,9 @@ export const activities: Activity[] = [
       {
         heading: "What I built",
         list: [
-          "Event and impact tracking in the Hey, Blue! mobile app (iOS and Android), letting residents discover local community events, track their personal neighborhood impact, and view community leaderboards.",
-          "The points and rewards system, where residents earn points for each verified, positive interaction with an officer and redeem them in the Points Store for groceries, clothing, household goods, and branded items.",
-          "Worked in small agile groups to code new versions of the mobile platform.",
+          "Collaborated in small agile groups of interns across the US to code new versions of the mobile platform and plan effectively in remote environments.",
+          "Built mobile features on team projects for event and impact tracking, letting residents discover local community events.",
+          "Built features on a team project prototyping an immersive map experience that lets users visualize their surroundings in real time.",
         ],
       },
     ],

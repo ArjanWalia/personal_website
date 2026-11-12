@@ -187,9 +187,9 @@ export const activityTextEs: Record<string, Text> = {
       {
         heading: "Lo que creé",
         list: [
-          "El seguimiento de eventos e impacto en la aplicación móvil de Hey, Blue! (iOS y Android), que permite a los residentes descubrir eventos comunitarios locales, seguir su impacto personal en el vecindario y ver las clasificaciones de la comunidad.",
-          "El sistema de puntos y recompensas, en el que los residentes ganan puntos por cada interacción positiva y verificada con un policía y los canjean en la Points Store por alimentos, ropa, artículos para el hogar y productos de la marca.",
-          "Trabajé en pequeños grupos ágiles para programar nuevas versiones de la plataforma móvil.",
+          "Colaboré en pequeños grupos ágiles de pasantes de todo EE. UU. para programar nuevas versiones de la plataforma móvil y planificar de forma eficaz en entornos remotos.",
+          "Desarrollé funciones móviles en proyectos de equipo de seguimiento de eventos e impacto, que permiten a los residentes descubrir eventos comunitarios locales.",
+          "Desarrollé funciones en un proyecto de equipo para crear prototipos de una experiencia de mapa inmersiva que permite a los usuarios visualizar su entorno en tiempo real.",
         ],
       },
     ],
