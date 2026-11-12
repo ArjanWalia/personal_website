@@ -253,7 +253,7 @@ export const activities: Activity[] = [
     name: "Hey, Blue!",
     filter: "Internships",
     label: "Software Development",
-    title: "Intern at Hey, Blue!",
+    title: "Software Intern at Hey, Blue!",
     // Phone screen recording from the heyblue.us landing page
     video: "/videos/heyblue.mp4",
     videoFit: "contain",

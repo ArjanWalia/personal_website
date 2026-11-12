@@ -180,7 +180,7 @@ export const activityTextEs: Record<string, Text> = {
   },
   "Hey, Blue!": {
     label: "Desarrollo de software",
-    title: "Pasante en Hey, Blue!",
+    title: "Pasante de software en Hey, Blue!",
     description:
       "Hey, Blue! fomenta conexiones significativas entre los policías y los miembros de su comunidad, ofreciendo oportunidades intencionales para que las personas se conozcan y compartan experiencias positivas. Hey, Blue! convierte en juego la relación entre los policías y los vecindarios que patrullan, generando confianza y acercando a residentes y agentes.",
   },
