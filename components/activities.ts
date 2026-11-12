@@ -260,6 +260,15 @@ export const activities: Activity[] = [
     logo: "/photos/heyblue-logo.webp",
     description:
       "Hey, Blue! is a nonprofit that facilitates meaningful connections between police officers and members of their community by offering intentional opportunities for individuals to meet and share positive experiences.",
+    sections: [
+      {
+        heading: "What I built",
+        list: [
+          "Event and impact tracking in the Hey, Blue! mobile app (iOS and Android), letting residents discover local community events, track their personal neighborhood impact, and view community leaderboards.",
+          "The points and rewards system, where residents earn points for each verified, positive interaction with an officer and redeem them in the Points Store for groceries, clothing, household goods, and branded items.",
+        ],
+      },
+    ],
   },
   {
     name: "Compass Lessons",

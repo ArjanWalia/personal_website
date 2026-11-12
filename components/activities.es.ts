@@ -183,6 +183,15 @@ export const activityTextEs: Record<string, Text> = {
     title: "Pasante de software en Hey, Blue!",
     description:
       "Hey, Blue! es una organización sin fines de lucro que fomenta conexiones significativas entre los policías y los miembros de su comunidad, ofreciendo oportunidades intencionales para que las personas se conozcan y compartan experiencias positivas.",
+    sections: [
+      {
+        heading: "Lo que creé",
+        list: [
+          "El seguimiento de eventos e impacto en la aplicación móvil de Hey, Blue! (iOS y Android), que permite a los residentes descubrir eventos comunitarios locales, seguir su impacto personal en el vecindario y ver las clasificaciones de la comunidad.",
+          "El sistema de puntos y recompensas, en el que los residentes ganan puntos por cada interacción positiva y verificada con un policía y los canjean en la Points Store por alimentos, ropa, artículos para el hogar y productos de la marca.",
+        ],
+      },
+    ],
   },
   "Compass Lessons": {
     label: "Desarrollo de software",
