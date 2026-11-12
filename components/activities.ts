@@ -259,7 +259,7 @@ export const activities: Activity[] = [
     videoFit: "contain",
     logo: "/photos/heyblue-logo.webp",
     description:
-      "Hey, Blue! facilitates meaningful connections between police officers and members of their community by offering intentional opportunities for individuals to meet and share positive experiences. Hey, Blue! gamifies the relationship between police officers and the neighborhoods they patrol, building trust and bridging the gap between residents and officers.",
+      "Hey, Blue! is a nonprofit that facilitates meaningful connections between police officers and members of their community by offering intentional opportunities for individuals to meet and share positive experiences.",
   },
   {
     name: "Compass Lessons",
