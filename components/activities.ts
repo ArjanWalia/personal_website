@@ -317,14 +317,7 @@ export const activities: Activity[] = [
       {
         heading: "Recognition",
         list: [
-          {
-            text: "Strong recommendation letter from Benny Esparra, CEO of Compass Lessons (October 2025).",
-            list: [
-              "Recognized for “uncommon resourcefulness and initiative” and a “self-reliant approach.”",
-              "Praised for “strategic thinking and technical execution” that “helped lay the digital foundation” for the firm.",
-              "Described as “a deeply grounded problem solver” with “maturity and ambition rarely seen in high school students.”",
-            ],
-          },
+          "Strong recommendation from the CEO: Recognized for “uncommon resourcefulness and initiative,” “self-reliant approach” | Praised for “strategic thinking and technical execution” that “helped lay the digital foundation” for the firm | Described as “a deeply grounded problem solver” with “maturity and ambition rarely seen in high school students.”",
         ],
       },
     ],

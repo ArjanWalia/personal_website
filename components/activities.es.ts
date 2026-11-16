@@ -234,14 +234,7 @@ export const activityTextEs: Record<string, Text> = {
       {
         heading: "Reconocimiento",
         list: [
-          {
-            text: "Sólida carta de recomendación de Benny Esparra, director ejecutivo de Compass Lessons (octubre de 2025).",
-            list: [
-              "Reconocido por su “ingenio e iniciativa poco comunes” y su “enfoque autosuficiente”.",
-              "Elogiado por su “pensamiento estratégico y ejecución técnica”, que “ayudaron a sentar la base digital” de la empresa.",
-              "Descrito como “un solucionador de problemas con los pies en la tierra”, con una “madurez y ambición poco comunes en estudiantes de secundaria”.",
-            ],
-          },
+          "Sólida recomendación del director ejecutivo: reconocido por su “ingenio e iniciativa poco comunes” y su “enfoque autosuficiente” | elogiado por su “pensamiento estratégico y ejecución técnica”, que “ayudaron a sentar la base digital” de la empresa | descrito como “un solucionador de problemas con los pies en la tierra”, con una “madurez y ambición poco comunes en estudiantes de secundaria”.",
         ],
       },
     ],
