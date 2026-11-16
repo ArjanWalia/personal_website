@@ -266,6 +266,10 @@ export const activities: Activity[] = [
           "Collaborated cross-functionally with senior engineers and product managers on security-focused full-stack development.",
         ],
       },
+      {
+        heading: "Recognition",
+        list: ["Strong recommendation from the CEO: “impressive,” “kind, respectful, willing to help peers,” and “strong leadership potential.”"],
+      },
     ],
   },
   {

@@ -195,6 +195,10 @@ export const activityTextEs: Record<string, Text> = {
           "Colaboré de forma interfuncional con ingenieros sénior y gerentes de producto en el desarrollo full-stack centrado en la seguridad.",
         ],
       },
+      {
+        heading: "Reconocimiento",
+        list: ["Sólida recomendación del director ejecutivo: “impresionante”, “amable, respetuoso, dispuesto a ayudar a sus compañeros” y “gran potencial de liderazgo”."],
+      },
     ],
   },
   "Hey, Blue!": {
