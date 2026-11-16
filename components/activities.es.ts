@@ -226,8 +226,8 @@ export const activityTextEs: Record<string, Text> = {
       {
         heading: "Lo que creé",
         list: [
-          "Desarrollé la arquitectura back-end de un chatbot para el sitio web de la empresa.",
-          "Implementé funciones clave del front-end y lancé el prototipo.",
+          "Entregué un prototipo funcional para el alcance global a socios de tecnología médica en un plazo ajustado de cuatro semanas.",
+          "Desarrollé la arquitectura back-end del chatbot e implementé un asistente virtual para consultas de clientes en el sitio web.",
           "Convertí un modelo de negocio complejo en funciones UI/UX simplificadas para el equipo de pasantes de front-end.",
         ],
       },

@@ -309,8 +309,8 @@ export const activities: Activity[] = [
       {
         heading: "What I built",
         list: [
-          "Developed the back-end architecture for a chatbot on the firm's website.",
-          "Implemented key front-end features and launched the prototype.",
+          "Delivered a working prototype for global medtech partner outreach on a tight four-week deadline.",
+          "Developed the chatbot back-end architecture, and implemented a virtual assistant for customer queries on the website.",
           "Turned a complex business model into simplified UI/UX features for the front-end intern team.",
         ],
       },
