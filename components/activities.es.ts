@@ -91,7 +91,15 @@ export const activityTextEs: Record<string, Text> = {
     sections: [
       {
         heading: "Por qué importa",
-        text: "El aumento del tráfico marítimo genera más ruido ambiental que afecta la vida marina. Además, los métodos actuales de identificación de embarcaciones requieren que los barcos ingresen su información por sí mismos, lo que plantea un problema de seguridad. Por eso se necesita una forma confiable y segura de identificar características de las embarcaciones.",
+        text: "El aumento del tráfico marítimo genera más ruido ambiental que afecta la vida marina. Además, la identificación actual de embarcaciones depende de la información que los barcos reportan sobre sí mismos, la cual puede ser inexacta o falsificada deliberadamente. Por eso se necesita una forma confiable y segura de identificar características de las embarcaciones.",
+      },
+      {
+        heading: "Cómo funciona",
+        steps: [
+          "Grabaciones: audio submarino de cinco motores de embarcación (cuatro motores fueraborda de combustión de 3,6 a 18 hp y uno eléctrico), divididos por grabación para que ningún archivo aparezca tanto en entrenamiento como en prueba",
+          "Huellas sonoras: cada clip de 10 segundos se filtra y se convierte en MFCC, un resumen compacto de cómo suena el motor",
+          "Modelos pequeños frente a grandes: se comparan modelos ligeros (regresión logística, k vecinos más cercanos, bosque aleatorio) con una red neuronal basada en YAMNet de Google; la pequeña regresión logística de 1 KB igualó a la red de 3,2 MB con un 92 % de precisión",
+        ],
       },
       {
         heading: "Resultados reales",

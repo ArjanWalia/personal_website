@@ -150,6 +150,14 @@ export const activities: Activity[] = [
         text: "The increasing maritime traffic introduces more ambient noise affecting marine life. In addition, current vessel identification relies on information ships report about themselves, which can be inaccurate or deliberately spoofed. Hence, a reliable and safe way of identifying aspects of vessels is needed.",
       },
       {
+        heading: "How it works",
+        steps: [
+          "Recordings: underwater audio of five vessel motors (four outboard combustion motors from 3.6 to 18 hp, and one electric), split by recording so no file appears in both training and testing",
+          "Sound fingerprints: each 10-second clip is filtered and turned into MFCCs, a compact summary of how the motor sounds",
+          "Compare small vs. large models: lightweight models (logistic regression, k-nearest neighbors, random forest) are tested against a neural network built on Google's YAMNet; the tiny 1 KB logistic regression matched the 3.2 MB network at 92% accuracy",
+        ],
+      },
+      {
         heading: "Real-world outcomes",
         list: [
           "Accepted for publication at IEEE SoutheastCon 2027.",
