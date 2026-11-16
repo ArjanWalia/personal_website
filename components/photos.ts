@@ -14,7 +14,7 @@ export const scrollerPhotos: Photo[] = [
   { caption: "With Stacy Hobbs", src: "/photos/stacy-hobbs.jpg", width: 1600, height: 1200 },
   { caption: "Tennis MVP", src: "/photos/tennis-mvp.jpg", width: 1194, height: 1600 },
   {
-    caption: "OpenHearth with IndieSonic",
+    caption: "Open Hearth with IndieSonic",
     src: "/photos/openhearth-indiesonic.jpg",
     width: 1600,
     height: 849,
