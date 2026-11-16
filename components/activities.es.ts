@@ -107,28 +107,29 @@ export const activityTextEs: Record<string, Text> = {
     label: "Investigación en procesamiento digital de señales",
     title: "Hacia un sistema para smartphone con control de calidad para intervención musical consciente del estrés",
     description:
-      "Propuse un sistema que combina un sensor PPG con un modelo ligero de aprendizaje automático en el teléfono que clasifica el estrés y responde con una intervención musical, para que el manejo del estrés sea más eficiente y accesible.",
+      "Diseñé un sistema que funciona solo con el teléfono: lee las señales cardíacas a través de la cámara, verifica la calidad de la señal, detecta el estrés con un modelo ligero y responde con música, para que el apoyo contra el estrés no dependa de dispositivos portátiles costosos.",
     sections: [
       {
         heading: "Por qué importa",
-        text: "El objetivo es un sistema que detecte el estrés a partir de señales del cuerpo y responda de inmediato con música adaptada al oyente, cerrando el ciclo entre la detección y el apoyo.",
+        text: "El 37 % de los adultos en el mundo reporta un estrés significativo, pero la mayoría de los sistemas de monitoreo del estrés dependen de dispositivos portátiles costosos e incómodos. La música es una forma comprobada de reducir el estrés, así que estudié si el teléfono que las personas ya llevan consigo podría detectar el estrés y responder con la música que aman.",
       },
       {
         heading: "Cómo funciona",
         steps: [
-          "Sensor Arduino de 5 canales",
-          "CNN + LSTM sobre señales sin procesar / MLP sobre características extraídas",
-          "Fusión calibrada: índice de estrés de 0 a 100",
-          "Biblioteca musical original de Suno / selecciones de Spotify mediante Claude",
+          "Control de calidad: un bosque aleatorio evalúa clips de 10 segundos de señal cardíaca captada con la cámara del smartphone, usando 32 características de forma de onda, frecuencia y latidos",
+          "Frecuencia cardíaca: un modelo Extra Trees estima los latidos por minuto a partir de los clips que pasan el control",
+          "Estrés: un clasificador ligero etiqueta ventanas de 60 segundos de señal cardíaca como calma o estrés",
+          "Música: recomienda la música propia del oyente, a partir de la replicación de un estudio de recuperación con música de 80 personas",
         ],
       },
       {
         heading: "Resultados reales",
         list: [
           "Aceptado para publicación en IEEE SoutheastCon 2027.",
-          "94 % de precisión al distinguir estados de calma y estrés en datos de un sensor de muñeca, usando señales cardíacas que puede captar la cámara de un teléfono.",
+          "94 % de precisión al distinguir estados de calma y estrés en datos de señal cardíaca de muñeca.",
           "Frecuencia cardíaca a partir de video de la cámara del smartphone con un error promedio de 6,5 BPM, con un control de calidad que descarta grabaciones inutilizables con un 78 % de precisión.",
-          "La música elegida por el oyente mejoró la recuperación del estrés en 1,05 puntos frente a un control con radio, con el mayor beneficio en el nerviosismo.",
+          "Repliqué un estudio musical publicado, que confirmó que la música elegida por el oyente mejoró la recuperación del estrés en 1,05 puntos y el nerviosismo en 1,30 puntos frente a un control con radio.",
+          "Cada componente se validó por separado; el siguiente paso es un estudio completo con participantes reales.",
           "Solicitud de patente de EE. UU. en trámite n.º 19/858,559 · Quality-Gated Physiological Feedback and Adaptive Music Intervention · noviembre de 2026",
         ],
       },

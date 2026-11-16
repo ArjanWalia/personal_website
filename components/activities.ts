@@ -147,7 +147,7 @@ export const activities: Activity[] = [
     sections: [
       {
         heading: "Why it matters",
-        text: "The increasing maritime traffic introduces more ambient noise affecting marine life. In addition, current methods of vessel identification require the ships to input information independently, introducing a security issue. Hence, a reliable and safe way of identifying aspects of vessels is needed.",
+        text: "The increasing maritime traffic introduces more ambient noise affecting marine life. In addition, current vessel identification relies on information ships report about themselves, which can be inaccurate or deliberately spoofed. Hence, a reliable and safe way of identifying aspects of vessels is needed.",
       },
       {
         heading: "Real-world outcomes",
@@ -168,28 +168,29 @@ export const activities: Activity[] = [
     image: "/photos/stress-flows.png",
     imageFit: "contain",
     description:
-      "I proposed a system that pairs a PPG sensor with a lightweight stress-classifying ML model on a phone, responding with musical intervention to make stress management more efficient and accessible.",
+      "I designed a phone-only system that reads heart signals through the camera, checks signal quality, detects stress with a lightweight model, and responds with music, so stress support doesn't depend on expensive wearables.",
     sections: [
       {
         heading: "Why it matters",
-        text: "The goal is a system that notices stress from body signals and responds right away with music matched to the listener, closing the loop between sensing and support.",
+        text: "37% of adults worldwide report significant stress, yet most stress-monitoring systems rely on wearables that are expensive and uncomfortable. Music is a proven way to lower stress, so I studied whether the phone people already carry could detect stress and respond with the music they love.",
       },
       {
         heading: "How it works",
         steps: [
-          "5-channel Arduino sensor",
-          "CNN + LSTM on raw signals / MLP on extracted features",
-          "Calibrated fusion: stress index 0–100",
-          "Original Suno music library / Spotify picks via Claude",
+          "Quality gate: a random forest screens 10-second smartphone-camera heart-signal clips using 32 waveform, frequency, and beat features",
+          "Heart rate: an Extra Trees model estimates beats per minute from the clips that pass",
+          "Stress: a lightweight classifier labels 60-second heart-signal windows as calm or stressed",
+          "Music: recommends the listener's own music, based on a replication of an 80-person music-recovery study",
         ],
       },
       {
         heading: "Real-world outcomes",
         list: [
           "Accepted for publication at IEEE SoutheastCon 2027.",
-          "94% accuracy telling calm from stressed states on wrist-sensor data, using heart signals a phone camera can capture.",
+          "94% accuracy telling calm from stressed states on wrist heart-signal data.",
           "Heart rate from smartphone-camera video within 6.5 BPM on average, with a quality gate that screens out unusable recordings at 78% accuracy.",
-          "Self-selected music improved stress recovery by 1.05 points over an active radio control, with the largest benefit in nervousness.",
+          "Replicated a published music study, confirming that self-selected music improved stress recovery by 1.05 points and nervousness by 1.30 points over an active radio control.",
+          "Each component is validated on its own; the next step is a full study with real participants.",
           "Pending U.S. Patent Application No. 19/858,559 · Quality-Gated Physiological Feedback and Adaptive Music Intervention · November 2026",
         ],
       },
